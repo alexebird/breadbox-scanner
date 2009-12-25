@@ -1,0 +1,2588 @@
+--- !ruby/object:Perishable 
+freezer: 60
+fridge: 
+major: :bread
+minor: :dough
+name: ready-to-bake pie crust
+room: 
+--- !ruby/object:Perishable 
+freezer: 60
+fridge: 
+major: :bread
+minor: :dough
+name: cookie dough
+room: 
+--- !ruby/object:Perishable 
+freezer: 90
+fridge: 
+major: :bread
+minor: 
+name: fresh bread
+room: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 60
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :bread
+minor: 
+name: bread dough
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 3
+major: :bread
+minor: 
+name: muffin
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 3
+major: :bread
+minor: 
+name: roll
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 3
+major: :bread
+minor: 
+name: quick bread
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 2
+major: :bread
+minor: 
+name: pancake
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 2
+major: :bread
+minor: 
+name: waffle
+room: 
+--- !ruby/object:Perishable 
+freezer: 90
+fridge: !ruby/range 
+  begin: 1
+  end: 3
+  excl: false
+major: :bread
+minor: 
+name: pastry
+room: 
+--- !ruby/object:Perishable 
+freezer: 90
+fridge: !ruby/range 
+  begin: 1
+  end: 3
+  excl: false
+major: :bread
+minor: 
+name: danish
+room: 
+--- !ruby/object:Perishable 
+freezer: 90
+fridge: !ruby/range 
+  begin: 1
+  end: 3
+  excl: false
+major: :bread
+minor: 
+name: doughnut
+room: 
+--- !ruby/object:Perishable 
+freezer: 90
+fridge: 7
+major: :bread
+minor: 
+name: tortilla
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: 3
+major: :baked_good
+minor: :cake
+name: angel food
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: 3
+major: :baked_good
+minor: :cake
+name: sponge cake
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 7
+  excl: false
+major: :baked_good
+minor: :cake
+name: cheesecake
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: 
+major: :baked_good
+minor: :cake
+name: fruit cake
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 60
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 7
+  excl: false
+major: :baked_good
+minor: :cake
+name: layer cake
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: 
+major: :baked_good
+minor: :cookie
+name: baked cookies
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 2
+  end: 3
+  excl: false
+major: :baked_good
+minor: :cookie
+name: cookie dough
+room: 
+--- !ruby/object:Perishable 
+freezer: 30
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :baked_good
+minor: :pie
+name: chiffon pie
+room: 
+--- !ruby/object:Perishable 
+freezer: 30
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :baked_good
+minor: :pie
+name: pumpkin pie
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :baked_good
+minor: :pie
+name: baked fruit pie
+room: 
+--- !ruby/object:Perishable 
+freezer: 240
+fridge: 
+major: :baked_good
+minor: :pie
+name: unbaked fruit pie
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :baked_good
+minor: :pie
+name: custard pie
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 4
+  end: 5
+  excl: false
+major: :baked_good
+minor: :pie
+name: nut pie
+room: 
+--- !ruby/object:Perishable 
+freezer: 60
+fridge: 1
+major: :baked_good
+minor: :pie
+name: unbaked pie shell
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 180
+  end: 270
+  excl: false
+fridge: !ruby/range 
+  begin: 30
+  end: 90
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: butter
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 7
+  end: 14
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: buttermilk
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: opened canned milk
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: 180
+major: :"dairy_&_egg"
+minor: :dairy
+name: cheddar cheese
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: 180
+major: :"dairy_&_egg"
+minor: :dairy
+name: swiss cheese
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 
+major: :"dairy_&_egg"
+minor: :dairy
+name: grated parmesan cheese
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: brie cheese
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: bel paese cheese
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: cottage cheese
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: ricotta cheese
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 14
+major: :"dairy_&_egg"
+minor: :dairy
+name: cream cheese
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 30
+major: :"dairy_&_egg"
+minor: :dairy
+name: ultra-pasteurized whipped cream
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 1
+major: :"dairy_&_egg"
+minor: :dairy
+name: sweetened whipped cream
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 21
+  end: 28
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: real aerosol can whipped cream
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 90
+major: :"dairy_&_egg"
+minor: :dairy
+name: non-dairy topping aerosol can whipped cream
+room: 
+--- !ruby/object:Perishable 
+freezer: 120
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: cream
+room: 
+--- !ruby/object:Perishable 
+freezer: 120
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: half and half
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: eggnog
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 
+major: :"dairy_&_egg"
+minor: :dairy
+name: ice cream
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 
+major: :"dairy_&_egg"
+minor: :dairy
+name: sorbet
+room: 
+--- !ruby/object:Perishable 
+freezer: 360
+fridge: !ruby/range 
+  begin: 120
+  end: 150
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: margarine
+room: 
+--- !ruby/object:Perishable 
+freezer: 360
+fridge: !ruby/range 
+  begin: 120
+  end: 150
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: buttery spread substitute
+room: 
+--- !ruby/object:Perishable 
+freezer: 30
+fridge: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: milk
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 2
+major: :"dairy_&_egg"
+minor: :dairy
+name: pudding
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 7
+  end: 21
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: sour cream
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 7
+  end: 14
+  excl: false
+major: :"dairy_&_egg"
+minor: :dairy
+name: yogurt
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 21
+  end: 35
+  excl: false
+major: :"dairy_&_egg"
+minor: :egg
+name: fresh in shell eggs
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: !ruby/range 
+  begin: 2
+  end: 4
+  excl: false
+major: :"dairy_&_egg"
+minor: :egg
+name: raw egg whites
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 7
+major: :"dairy_&_egg"
+minor: :egg
+name: raw egg yolks
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 7
+major: :"dairy_&_egg"
+minor: :egg
+name: hard cooked eggs
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: 3
+major: :"dairy_&_egg"
+minor: :egg
+name: liquid pasteurized eggs
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: 3
+major: :"dairy_&_egg"
+minor: :egg
+name: egg substitutes
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 60
+major: :"dairy_&_egg"
+minor: :egg
+name: mayonnaise
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: 
+major: :fruit
+minor: :fresh_fruit
+name: commercially frozen fruit
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 360
+  end: 720
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: canned fruit
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: dried fruit
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 90
+  end: 150
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: apple
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: apricot
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: nectarine
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: pear
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: plum
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 5
+  end: 10
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: avocado
+room: !ruby/range 
+  begin: 2
+  end: 3
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 2
+  end: 3
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: berries
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 2
+  end: 3
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: cherries
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 21
+  end: 28
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: cranberries
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: 14
+major: :fruit
+minor: :fresh_fruit
+name: grapefruit
+room: 7
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 7
+  end: 14
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: grapes
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: guava
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: papaya
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: kiwi fruit
+room: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 14
+  end: 35
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: lemon
+room: 7
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 14
+  end: 35
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: lime
+room: 7
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 7
+major: :fruit
+minor: :fresh_fruit
+name: melon
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 35
+  end: 42
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: orange
+room: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 2
+  end: 3
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: peach
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: pineapple
+room: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 7
+major: :fruit
+minor: :fresh_fruit
+name: tangerine
+room: !ruby/range 
+  begin: 2
+  end: 3
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 6
+  end: 8
+  excl: false
+major: :fruit
+minor: :fresh_fruit
+name: watermelon
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 21
+major: :fruit
+minor: :fruit_beverage
+name: juice in carton
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 21
+major: :fruit
+minor: :fruit_beverage
+name: fruit drink
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 21
+major: :fruit
+minor: :fruit_beverage
+name: punch
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: egg salad
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: chicken salad
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: ham salad
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: tuna salad
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: macaroni salads
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 7
+major: :meat
+minor: :"hot_dogs_&_luncheon_meat"
+name: hot dogs
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"hot_dogs_&_luncheon_meat"
+name: luncheon meat
+room: 
+--- !ruby/object:Perishable 
+freezer: 30
+fridge: 7
+major: :meat
+minor: :"bacon_&_sausage"
+name: bacon
+room: 
+--- !ruby/object:Perishable 
+freezer: 30
+fridge: 7
+major: :meat
+minor: :"bacon_&_sausage"
+name: pancetta
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :"bacon_&_sausage"
+name: fresh sausage
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 7
+major: :meat
+minor: :"bacon_&_sausage"
+name: smoked breakfast links
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 7
+major: :meat
+minor: :"bacon_&_sausage"
+name: smoked breakfast patties
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 14
+  end: 21
+  excl: false
+major: :meat
+minor: :"bacon_&_sausage"
+name: pepperoni
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 14
+  end: 21
+  excl: false
+major: :meat
+minor: :"bacon_&_sausage"
+name: jerky sticks
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 21
+major: :meat
+minor: :"bacon_&_sausage"
+name: summer sausage
+room: 
+--- !ruby/object:Perishable 
+freezer: 30
+fridge: !ruby/range 
+  begin: 5
+  end: 7
+  excl: false
+major: :meat
+minor: :"ham,_corned_beef"
+name: corned beef
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"ham,_corned_beef"
+name: canned ham
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 14
+major: :meat
+minor: :"ham,_corned_beef"
+name: vacuum sealed ham
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: 7
+major: :meat
+minor: :"ham,_corned_beef"
+name: whole fully cooked ham
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"ham,_corned_beef"
+name: half fully cooked ham
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :"ham,_corned_beef"
+name: sliced fully cooked ham
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :"hamburger,_ground"
+name: hamburger
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :"hamburger,_ground"
+name: ground beef
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :"hamburger,_ground"
+name: ground turkey
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :"hamburger,_ground"
+name: ground veal
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :"hamburger,_ground"
+name: ground pork
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :"hamburger,_ground"
+name: ground lamb
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 180
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: steak
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: chop
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: roast
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: variety meats
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 1
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: pre-stuffed uncooked pork chops
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 1
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: pre-stuffed uncooked lamb chops
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 1
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: pre-stuffed uncooked chicken breast
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: 
+major: :meat
+minor: :"soup_&_stew"
+name: chili
+room: 
+--- !ruby/object:Perishable 
+freezer: 120
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :"soup_&_stew"
+name: broth-based soup
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 2
+major: :meat
+minor: :"soup_&_stew"
+name: chowder
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 2
+major: :meat
+minor: :"soup_&_stew"
+name: bisques
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :"soup_&_stew"
+name: soup stock
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :"soup_&_stew"
+name: stew
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :meat_leftover
+name: cooked meat
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :meat_leftover
+name: meat casseroles
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :meat_leftover
+name: gravy
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :meat_leftover
+name: meat broth
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :fresh_poultry
+name: whole chicken
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :fresh_poultry
+name: whole turkey
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :fresh_poultry
+name: whole duck
+room: 
+--- !ruby/object:Perishable 
+freezer: 270
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :fresh_poultry
+name: chicken pieces
+room: 
+--- !ruby/object:Perishable 
+freezer: 270
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :fresh_poultry
+name: turkey pieces
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :fresh_poultry
+name: giblets
+room: 
+--- !ruby/object:Perishable 
+freezer: 120
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :cooked_poultry
+name: fried chicken
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :cooked_poultry
+name: cooked poultry casserole
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 90
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :cooked_poultry
+name: chicken nuggets
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 90
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :meat
+minor: :cooked_poultry
+name: chicken patties
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 30
+  end: 60
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :pizza
+name: pizza
+room: 
+--- !ruby/object:Perishable 
+freezer: 30
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :meat
+minor: :stuffing
+name: cooked stuffing
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :fish
+name: cod
+room: 
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :fish
+name: flounder
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :fish
+name: salmon
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :fish
+name: bluefish
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :fish
+name: mackerel
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 120
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :seafood_and_fish
+minor: :fish
+name: cooked fish
+room: 
+--- !ruby/object:Perishable 
+freezer: 60
+fridge: 14
+major: :seafood_and_fish
+minor: :fish
+name: smoked fish
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 7
+  end: 10
+  excl: false
+fridge: 
+major: :seafood_and_fish
+minor: :shellfish
+name: clams
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 7
+  end: 10
+  excl: false
+fridge: 
+major: :seafood_and_fish
+minor: :shellfish
+name: oysters
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 7
+  end: 10
+  excl: false
+fridge: 
+major: :seafood_and_fish
+minor: :shellfish
+name: scallops
+room: 
+--- !ruby/object:Perishable 
+freezer: 90
+fridge: !ruby/range 
+  begin: 3
+  end: 4
+  excl: false
+major: :seafood_and_fish
+minor: :shellfish
+name: cooked shellfish
+room: 
+--- !ruby/object:Perishable 
+freezer: 60
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :shellfish
+name: cooked crab
+room: 
+--- !ruby/object:Perishable 
+freezer: 540
+fridge: 
+major: :seafood_and_fish
+minor: :shellfish
+name: fish sticks
+room: 
+--- !ruby/object:Perishable 
+freezer: 90
+fridge: 
+major: :seafood_and_fish
+minor: :shellfish
+name: raw lobster tails
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :shellfish
+name: shrimp
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :shellfish
+name: crayfish
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :shellfish
+name: squid
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :shellfish
+name: shucked clams
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 180
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :seafood_and_fish
+minor: :shellfish
+name: mussels
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: baby food
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: baking powder
+room: 540
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: baking soda
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: biscuit mix
+room: !ruby/range 
+  begin: 360
+  end: 540
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: bouillon cubes or granules
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: brownie mix
+room: !ruby/range 
+  begin: 270
+  end: 360
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: cake mix
+room: !ruby/range 
+  begin: 270
+  end: 360
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 180
+fridge: !ruby/range 
+  begin: 60
+  end: 120
+  excl: false
+major: :staples_or_pantry_item
+minor: 
+name: candy
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: ketchup
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: catsup
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: chili sauce
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: cereals
+room: !ruby/range 
+  begin: 180
+  end: 360
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: chocolate
+room: 540
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 180
+major: :staples_or_pantry_item
+minor: 
+name: chocolate syrup
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: baking cocoa
+room: 240
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 180
+major: :staples_or_pantry_item
+minor: 
+name: shredded coconut
+room: 365
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: canned coffee
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: instant coffee
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: whole bean coffee
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: cornmeal
+room: 360
+--- !ruby/object:Perishable 
+freezer: 90
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: crackers
+room: 180
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: !ruby/range 
+  begin: 180
+  end: 240
+  excl: false
+major: :staples_or_pantry_item
+minor: 
+name: white flour
+room: !ruby/range 
+  begin: 180
+  end: 240
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: !ruby/range 
+  begin: 180
+  end: 240
+  excl: false
+major: :staples_or_pantry_item
+minor: 
+name: whole wheat flour
+room: !ruby/range 
+  begin: 180
+  end: 240
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: !ruby/range 
+  begin: 180
+  end: 240
+  excl: false
+major: :staples_or_pantry_item
+minor: 
+name: bread flour
+room: !ruby/range 
+  begin: 180
+  end: 240
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: gelatin
+room: 540
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: grits
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: herbs
+room: 180
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: honey
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 180
+major: :staples_or_pantry_item
+minor: 
+name: jelly
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 180
+major: :staples_or_pantry_item
+minor: 
+name: jam
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 180
+major: :staples_or_pantry_item
+minor: 
+name: preserves
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: molasses
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: marshmallow cream
+room: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: marshmallows
+room: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+major: :staples_or_pantry_item
+minor: 
+name: mayonnaise
+room: !ruby/range 
+  begin: 60
+  end: 90
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: prepared yellow mustard
+room: 730
+--- !ruby/object:Perishable 
+freezer: 730
+fridge: 365
+major: :staples_or_pantry_item
+minor: 
+name: canned hazelnuts
+room: 120
+--- !ruby/object:Perishable 
+freezer: 730
+fridge: 365
+major: :staples_or_pantry_item
+minor: 
+name: canned walnuts
+room: 120
+--- !ruby/object:Perishable 
+freezer: 730
+fridge: 365
+major: :staples_or_pantry_item
+minor: 
+name: canned pecans
+room: 120
+--- !ruby/object:Perishable 
+freezer: 730
+fridge: 365
+major: :staples_or_pantry_item
+minor: 
+name: in-shell hazelnuts
+room: 120
+--- !ruby/object:Perishable 
+freezer: 730
+fridge: 365
+major: :staples_or_pantry_item
+minor: 
+name: in-shell walnuts
+room: 120
+--- !ruby/object:Perishable 
+freezer: 730
+fridge: 365
+major: :staples_or_pantry_item
+minor: 
+name: in-shell pecans
+room: 120
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: condensed milk
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: evaporated milk
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: canned milk
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: canned olives
+room: 365
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: pancake mix
+room: !ruby/range 
+  begin: 180
+  end: 270
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: pasta
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: peanut butter
+room: !ruby/range 
+  begin: 180
+  end: 270
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: pickles
+room: !ruby/range 
+  begin: 365
+  end: 730
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: pie crust mix
+room: 240
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: popcorn
+room: !ruby/range 
+  begin: 365
+  end: 730
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: instant potatoes
+room: !ruby/range 
+  begin: 180
+  end: 360
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: pudding mix
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: white rice
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: flavored rice
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: herb rice
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: bottled salad dressing
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: corn oil
+room: 540
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: olive oil
+room: 540
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: canola oil
+room: 540
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: sauce
+room: !ruby/range 
+  begin: 180
+  end: 360
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: gravy mix
+room: !ruby/range 
+  begin: 180
+  end: 360
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: shortening
+room: 540
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: whole spices
+room: !ruby/range 
+  begin: 365
+  end: 730
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: ground spices
+room: !ruby/range 
+  begin: 365
+  end: 730
+  excl: false
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: granulated sugar
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: brown sugar
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: powdered sugar
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: sweetener
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: syrup
+room: 360
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: tea bags
+room: 540
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: instant tea
+room: 540
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: loose tea
+room: 540
+--- !ruby/object:Perishable 
+freezer: 150
+fridge: 7
+major: :staples_or_pantry_item
+minor: 
+name: tofu
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: vanilla extract
+room: 730
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :staples_or_pantry_item
+minor: 
+name: vinegar
+room: 730
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 365
+  end: 730
+  excl: false
+fridge: 42
+major: :staples_or_pantry_item
+minor: 
+name: yeast
+room: 
+--- !ruby/object:Perishable 
+freezer: 365
+fridge: 
+major: :vegetable
+minor: 
+name: commercially frozen
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 3
+major: :vegetable
+minor: 
+name: canned vegetables
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 7
+major: :vegetable
+minor: 
+name: artichoke
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :vegetable
+minor: 
+name: asparagus
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 14
+major: :vegetable
+minor: 
+name: beets
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 14
+major: :vegetable
+minor: 
+name: carrots
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 6
+  excl: false
+major: :vegetable
+minor: 
+name: beans
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 6
+  excl: false
+major: :vegetable
+minor: 
+name: broccoli
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 6
+  excl: false
+major: :vegetable
+minor: 
+name: lima beans
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 6
+  excl: false
+major: :vegetable
+minor: 
+name: summer squash
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: !ruby/range 
+  begin: 7
+  end: 14
+  excl: false
+major: :vegetable
+minor: 
+name: bell peppers
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 7
+major: :vegetable
+minor: 
+name: cabbage
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 7
+major: :vegetable
+minor: 
+name: cauliflower
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 7
+major: :vegetable
+minor: 
+name: celery
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 
+major: :vegetable
+minor: 
+name: corn
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :vegetable
+minor: 
+name: green onion
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :vegetable
+minor: 
+name: collards
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :vegetable
+minor: 
+name: kale
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :vegetable
+minor: 
+name: mustard
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :vegetable
+minor: 
+name: spinach
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 3
+  end: 5
+  excl: false
+major: :vegetable
+minor: 
+name: swiss chard
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: 7
+major: :vegetable
+minor: 
+name: green beans
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 7
+major: :vegetable
+minor: 
+name: lettuce
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 7
+major: :vegetable
+minor: 
+name: salad greens
+room: 
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 240
+  end: 360
+  excl: false
+fridge: !ruby/range 
+  begin: 1
+  end: 2
+  excl: false
+major: :vegetable
+minor: 
+name: mushrooms
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 14
+major: :vegetable
+minor: 
+name: radish
+room: 
+--- !ruby/object:Perishable 
+freezer: 
+fridge: 
+major: :vegetable
+minor: 
+name: squash
+room: !ruby/range 
+  begin: 90
+  end: 180
+  excl: false
+--- !ruby/object:Perishable 
+freezer: !ruby/range 
+  begin: 90
+  end: 120
+  excl: false
+fridge: 
+major: :vegetable
+minor: 
+name: tomato
+room: 

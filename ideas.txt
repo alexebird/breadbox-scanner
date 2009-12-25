@@ -1,0 +1,19 @@
+Main goal: quick and easy to use, minimal manual data entry
+
+iphone & android
+-> take a picture of the food
+  -> how to extract meaningful information?
+	-> image regocnition
+-> scan bar code
+  -> dont want to pay for existing barcode reading software
+  -> need extensive barcode database with food
+
+RFID
+-> rfid tags would be pre-associated with different types of commonly perishable foods.
+-> custom associations
+-> database of foods with information such as 
+  -> how long the food lasts
+
+-> be conscious of power consumption to minimize offset on $ savings.
+-> $ savings
+-> real market data

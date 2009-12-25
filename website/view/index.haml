@@ -1,0 +1,11 @@
+%table
+  %tr
+    %th RFID
+    %th Name
+  - Food.limit(10).reverse_order(:rfid).each do |food|
+    %tr
+      %td
+        = food.rfid
+      %td
+        = food.name
+  

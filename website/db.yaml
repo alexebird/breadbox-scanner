@@ -1,0 +1,1743 @@
+--- !ruby/object:Food 
+freezer_start: 60
+major: :bread
+minor: :dough
+name: ready-to-bake pie crust
+--- !ruby/object:Food 
+freezer_start: 60
+major: :bread
+minor: :dough
+name: cookie dough
+--- !ruby/object:Food 
+freezer_start: 90
+major: :bread
+minor: 
+name: fresh bread
+room_end: 5
+room_start: 3
+--- !ruby/object:Food 
+freezer_start: 60
+fridge_end: 2
+fridge_start: 1
+major: :bread
+minor: 
+name: bread dough
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 3
+major: :bread
+minor: 
+name: muffin
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 3
+major: :bread
+minor: 
+name: roll
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 3
+major: :bread
+minor: 
+name: quick bread
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 2
+major: :bread
+minor: 
+name: pancake
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 2
+major: :bread
+minor: 
+name: waffle
+--- !ruby/object:Food 
+freezer_start: 90
+fridge_end: 3
+fridge_start: 1
+major: :bread
+minor: 
+name: pastry
+--- !ruby/object:Food 
+freezer_start: 90
+fridge_end: 3
+fridge_start: 1
+major: :bread
+minor: 
+name: danish
+--- !ruby/object:Food 
+freezer_start: 90
+fridge_end: 3
+fridge_start: 1
+major: :bread
+minor: 
+name: doughnut
+--- !ruby/object:Food 
+freezer_start: 90
+fridge_start: 7
+major: :bread
+minor: 
+name: tortilla
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_start: 3
+major: :baked_good
+minor: :cake
+name: angel food
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_start: 3
+major: :baked_good
+minor: :cake
+name: sponge cake
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_end: 7
+fridge_start: 3
+major: :baked_good
+minor: :cake
+name: cheesecake
+--- !ruby/object:Food 
+freezer_start: 365
+major: :baked_good
+minor: :cake
+name: fruit cake
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 60
+fridge_end: 7
+fridge_start: 3
+major: :baked_good
+minor: :cake
+name: layer cake
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+major: :baked_good
+minor: :cookie
+name: baked cookies
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 3
+fridge_start: 2
+major: :baked_good
+minor: :cookie
+name: cookie dough
+--- !ruby/object:Food 
+freezer_start: 30
+fridge_end: 2
+fridge_start: 1
+major: :baked_good
+minor: :pie
+name: chiffon pie
+--- !ruby/object:Food 
+freezer_start: 30
+fridge_end: 2
+fridge_start: 1
+major: :baked_good
+minor: :pie
+name: pumpkin pie
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_end: 2
+fridge_start: 1
+major: :baked_good
+minor: :pie
+name: baked fruit pie
+--- !ruby/object:Food 
+freezer_start: 240
+major: :baked_good
+minor: :pie
+name: unbaked fruit pie
+--- !ruby/object:Food 
+fridge_end: 2
+fridge_start: 1
+major: :baked_good
+minor: :pie
+name: custard pie
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 5
+fridge_start: 4
+major: :baked_good
+minor: :pie
+name: nut pie
+--- !ruby/object:Food 
+freezer_start: 60
+fridge_start: 1
+major: :baked_good
+minor: :pie
+name: unbaked pie shell
+--- !ruby/object:Food 
+freezer_end: 270
+freezer_start: 180
+fridge_end: 90
+fridge_start: 30
+major: :"dairy_&_egg"
+minor: :dairy
+name: butter
+--- !ruby/object:Food 
+fridge_end: 14
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: buttermilk
+--- !ruby/object:Food 
+fridge_end: 5
+fridge_start: 3
+major: :"dairy_&_egg"
+minor: :dairy
+name: opened canned milk
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_start: 180
+major: :"dairy_&_egg"
+minor: :dairy
+name: cheddar cheese
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_start: 180
+major: :"dairy_&_egg"
+minor: :dairy
+name: swiss cheese
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+major: :"dairy_&_egg"
+minor: :dairy
+name: grated parmesan cheese
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: brie cheese
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: bel paese cheese
+--- !ruby/object:Food 
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: cottage cheese
+--- !ruby/object:Food 
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: ricotta cheese
+--- !ruby/object:Food 
+fridge_start: 14
+major: :"dairy_&_egg"
+minor: :dairy
+name: cream cheese
+--- !ruby/object:Food 
+fridge_start: 30
+major: :"dairy_&_egg"
+minor: :dairy
+name: ultra-pasteurized whipped cream
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 1
+major: :"dairy_&_egg"
+minor: :dairy
+name: sweetened whipped cream
+--- !ruby/object:Food 
+fridge_end: 28
+fridge_start: 21
+major: :"dairy_&_egg"
+minor: :dairy
+name: real aerosol can whipped cream
+--- !ruby/object:Food 
+fridge_start: 90
+major: :"dairy_&_egg"
+minor: :dairy
+name: non-dairy topping aerosol can whipped cream
+--- !ruby/object:Food 
+freezer_start: 120
+fridge_end: 4
+fridge_start: 3
+major: :"dairy_&_egg"
+minor: :dairy
+name: cream
+--- !ruby/object:Food 
+freezer_start: 120
+fridge_end: 4
+fridge_start: 3
+major: :"dairy_&_egg"
+minor: :dairy
+name: half and half
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 5
+fridge_start: 3
+major: :"dairy_&_egg"
+minor: :dairy
+name: eggnog
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+major: :"dairy_&_egg"
+minor: :dairy
+name: ice cream
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+major: :"dairy_&_egg"
+minor: :dairy
+name: sorbet
+--- !ruby/object:Food 
+freezer_start: 360
+fridge_end: 150
+fridge_start: 120
+major: :"dairy_&_egg"
+minor: :dairy
+name: margarine
+--- !ruby/object:Food 
+freezer_start: 360
+fridge_end: 150
+fridge_start: 120
+major: :"dairy_&_egg"
+minor: :dairy
+name: buttery spread substitute
+--- !ruby/object:Food 
+freezer_start: 30
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: milk
+rfid: "17007E24F3"
+--- !ruby/object:Food 
+fridge_start: 2
+major: :"dairy_&_egg"
+minor: :dairy
+name: pudding
+--- !ruby/object:Food 
+fridge_end: 21
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: sour cream
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 14
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: yogurt
+--- !ruby/object:Food 
+fridge_end: 35
+fridge_start: 21
+major: :"dairy_&_egg"
+minor: :egg
+name: fresh in shell eggs
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_end: 4
+fridge_start: 2
+major: :"dairy_&_egg"
+minor: :egg
+name: raw egg whites
+--- !ruby/object:Food 
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :egg
+name: raw egg yolks
+--- !ruby/object:Food 
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :egg
+name: hard cooked eggs
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_start: 3
+major: :"dairy_&_egg"
+minor: :egg
+name: liquid pasteurized eggs
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_start: 3
+major: :"dairy_&_egg"
+minor: :egg
+name: egg substitutes
+--- !ruby/object:Food 
+fridge_start: 60
+major: :"dairy_&_egg"
+minor: :egg
+name: mayonnaise
+--- !ruby/object:Food 
+freezer_start: 365
+major: :fruit
+minor: :fresh_fruit
+name: commercially frozen fruit
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 720
+fridge_start: 360
+major: :fruit
+minor: :fresh_fruit
+name: canned fruit
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_end: 5
+fridge_start: 3
+major: :fruit
+minor: :fresh_fruit
+name: dried fruit
+--- !ruby/object:Food 
+fridge_end: 150
+fridge_start: 90
+major: :fruit
+minor: :fresh_fruit
+name: apple
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 5
+fridge_start: 3
+major: :fruit
+minor: :fresh_fruit
+name: apricot
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 5
+fridge_start: 3
+major: :fruit
+minor: :fresh_fruit
+name: nectarine
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 5
+fridge_start: 3
+major: :fruit
+minor: :fresh_fruit
+name: pear
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 5
+fridge_start: 3
+major: :fruit
+minor: :fresh_fruit
+name: plum
+--- !ruby/object:Food 
+fridge_end: 10
+fridge_start: 5
+major: :fruit
+minor: :fresh_fruit
+name: avocado
+room_end: 3
+room_start: 2
+--- !ruby/object:Food 
+fridge_end: 3
+fridge_start: 2
+major: :fruit
+minor: :fresh_fruit
+name: berries
+--- !ruby/object:Food 
+fridge_end: 3
+fridge_start: 2
+major: :fruit
+minor: :fresh_fruit
+name: cherries
+--- !ruby/object:Food 
+fridge_end: 28
+fridge_start: 21
+major: :fruit
+minor: :fresh_fruit
+name: cranberries
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_start: 14
+major: :fruit
+minor: :fresh_fruit
+name: grapefruit
+room_start: 7
+--- !ruby/object:Food 
+fridge_end: 14
+fridge_start: 7
+major: :fruit
+minor: :fresh_fruit
+name: grapes
+--- !ruby/object:Food 
+fridge_end: 2
+fridge_start: 1
+major: :fruit
+minor: :fresh_fruit
+name: guava
+--- !ruby/object:Food 
+fridge_end: 2
+fridge_start: 1
+major: :fruit
+minor: :fresh_fruit
+name: papaya
+--- !ruby/object:Food 
+fridge_end: 180
+fridge_start: 120
+major: :fruit
+minor: :fresh_fruit
+name: kiwi fruit
+room_end: 5
+room_start: 3
+--- !ruby/object:Food 
+fridge_end: 35
+fridge_start: 14
+major: :fruit
+minor: :fresh_fruit
+name: lemon
+room_start: 7
+--- !ruby/object:Food 
+fridge_end: 35
+fridge_start: 14
+major: :fruit
+minor: :fresh_fruit
+name: lime
+room_start: 7
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_start: 7
+major: :fruit
+minor: :fresh_fruit
+name: melon
+--- !ruby/object:Food 
+fridge_end: 42
+fridge_start: 35
+major: :fruit
+minor: :fresh_fruit
+name: orange
+room_end: 4
+room_start: 3
+rfid: "0415ED52CF"
+--- !ruby/object:Food 
+fridge_end: 3
+fridge_start: 2
+major: :fruit
+minor: :fresh_fruit
+name: peach
+--- !ruby/object:Food 
+fridge_end: 5
+fridge_start: 3
+major: :fruit
+minor: :fresh_fruit
+name: pineapple
+room_end: 2
+room_start: 1
+--- !ruby/object:Food 
+fridge_start: 7
+major: :fruit
+minor: :fresh_fruit
+name: tangerine
+room_end: 3
+room_start: 2
+--- !ruby/object:Food 
+fridge_end: 8
+fridge_start: 6
+major: :fruit
+minor: :fresh_fruit
+name: watermelon
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_start: 21
+major: :fruit
+minor: :fruit_beverage
+name: juice in carton
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_start: 21
+major: :fruit
+minor: :fruit_beverage
+name: fruit drink
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_start: 21
+major: :fruit
+minor: :fruit_beverage
+name: punch
+--- !ruby/object:Food 
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: egg salad
+--- !ruby/object:Food 
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: chicken salad
+--- !ruby/object:Food 
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: ham salad
+--- !ruby/object:Food 
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: tuna salad
+--- !ruby/object:Food 
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"deli_&_vacuum-packed_product"
+name: macaroni salads
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 7
+major: :meat
+minor: :"hot_dogs_&_luncheon_meat"
+name: hot dogs
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"hot_dogs_&_luncheon_meat"
+name: luncheon meat
+--- !ruby/object:Food 
+freezer_start: 30
+fridge_start: 7
+major: :meat
+minor: :"bacon_&_sausage"
+name: bacon
+--- !ruby/object:Food 
+freezer_start: 30
+fridge_start: 7
+major: :meat
+minor: :"bacon_&_sausage"
+name: pancetta
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :"bacon_&_sausage"
+name: fresh sausage
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 7
+major: :meat
+minor: :"bacon_&_sausage"
+name: smoked breakfast links
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 7
+major: :meat
+minor: :"bacon_&_sausage"
+name: smoked breakfast patties
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 21
+fridge_start: 14
+major: :meat
+minor: :"bacon_&_sausage"
+name: pepperoni
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 21
+fridge_start: 14
+major: :meat
+minor: :"bacon_&_sausage"
+name: jerky sticks
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 21
+major: :meat
+minor: :"bacon_&_sausage"
+name: summer sausage
+--- !ruby/object:Food 
+freezer_start: 30
+fridge_end: 7
+fridge_start: 5
+major: :meat
+minor: :"ham,_corned_beef"
+name: corned beef
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"ham,_corned_beef"
+name: canned ham
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 14
+major: :meat
+minor: :"ham,_corned_beef"
+name: vacuum sealed ham
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_start: 7
+major: :meat
+minor: :"ham,_corned_beef"
+name: whole fully cooked ham
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"ham,_corned_beef"
+name: half fully cooked ham
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :"ham,_corned_beef"
+name: sliced fully cooked ham
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :"hamburger,_ground"
+name: hamburger
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :"hamburger,_ground"
+name: ground beef
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :"hamburger,_ground"
+name: ground turkey
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :"hamburger,_ground"
+name: ground veal
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :"hamburger,_ground"
+name: ground pork
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :"hamburger,_ground"
+name: ground lamb
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 180
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: steak
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: chop
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 120
+fridge_end: 5
+fridge_start: 3
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: roast
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: variety meats
+--- !ruby/object:Food 
+fridge_start: 1
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: pre-stuffed uncooked pork chops
+--- !ruby/object:Food 
+fridge_start: 1
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: pre-stuffed uncooked lamb chops
+--- !ruby/object:Food 
+fridge_start: 1
+major: :meat
+minor: :"fresh_beef,_veal,_lamb,_pork"
+name: pre-stuffed uncooked chicken breast
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+major: :meat
+minor: :"soup_&_stew"
+name: chili
+--- !ruby/object:Food 
+freezer_start: 120
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :"soup_&_stew"
+name: broth-based soup
+--- !ruby/object:Food 
+fridge_start: 2
+major: :meat
+minor: :"soup_&_stew"
+name: chowder
+--- !ruby/object:Food 
+fridge_start: 2
+major: :meat
+minor: :"soup_&_stew"
+name: bisques
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :"soup_&_stew"
+name: soup stock
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :"soup_&_stew"
+name: stew
+--- !ruby/object:Food 
+freezer_end: 90
+freezer_start: 60
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :meat_leftover
+name: cooked meat
+--- !ruby/object:Food 
+freezer_end: 90
+freezer_start: 60
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :meat_leftover
+name: meat casseroles
+--- !ruby/object:Food 
+freezer_end: 90
+freezer_start: 60
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :meat_leftover
+name: gravy
+--- !ruby/object:Food 
+freezer_end: 90
+freezer_start: 60
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :meat_leftover
+name: meat broth
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :fresh_poultry
+name: whole chicken
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :fresh_poultry
+name: whole turkey
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :fresh_poultry
+name: whole duck
+--- !ruby/object:Food 
+freezer_start: 270
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :fresh_poultry
+name: chicken pieces
+--- !ruby/object:Food 
+freezer_start: 270
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :fresh_poultry
+name: turkey pieces
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :fresh_poultry
+name: giblets
+--- !ruby/object:Food 
+freezer_start: 120
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :cooked_poultry
+name: fried chicken
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :cooked_poultry
+name: cooked poultry casserole
+--- !ruby/object:Food 
+freezer_end: 90
+freezer_start: 30
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :cooked_poultry
+name: chicken nuggets
+--- !ruby/object:Food 
+freezer_end: 90
+freezer_start: 30
+fridge_end: 2
+fridge_start: 1
+major: :meat
+minor: :cooked_poultry
+name: chicken patties
+--- !ruby/object:Food 
+freezer_end: 60
+freezer_start: 30
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :pizza
+name: pizza
+--- !ruby/object:Food 
+freezer_start: 30
+fridge_end: 4
+fridge_start: 3
+major: :meat
+minor: :stuffing
+name: cooked stuffing
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :fish
+name: cod
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :fish
+name: flounder
+--- !ruby/object:Food 
+freezer_end: 90
+freezer_start: 60
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :fish
+name: salmon
+--- !ruby/object:Food 
+freezer_end: 90
+freezer_start: 60
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :fish
+name: bluefish
+--- !ruby/object:Food 
+freezer_end: 90
+freezer_start: 60
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :fish
+name: mackerel
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 120
+fridge_end: 4
+fridge_start: 3
+major: :seafood_and_fish
+minor: :fish
+name: cooked fish
+--- !ruby/object:Food 
+freezer_start: 60
+fridge_start: 14
+major: :seafood_and_fish
+minor: :fish
+name: smoked fish
+--- !ruby/object:Food 
+freezer_end: 10
+freezer_start: 7
+major: :seafood_and_fish
+minor: :shellfish
+name: clams
+--- !ruby/object:Food 
+freezer_end: 10
+freezer_start: 7
+major: :seafood_and_fish
+minor: :shellfish
+name: oysters
+--- !ruby/object:Food 
+freezer_end: 10
+freezer_start: 7
+major: :seafood_and_fish
+minor: :shellfish
+name: scallops
+--- !ruby/object:Food 
+freezer_start: 90
+fridge_end: 4
+fridge_start: 3
+major: :seafood_and_fish
+minor: :shellfish
+name: cooked shellfish
+--- !ruby/object:Food 
+freezer_start: 60
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :shellfish
+name: cooked crab
+--- !ruby/object:Food 
+freezer_start: 540
+major: :seafood_and_fish
+minor: :shellfish
+name: fish sticks
+--- !ruby/object:Food 
+freezer_start: 90
+major: :seafood_and_fish
+minor: :shellfish
+name: raw lobster tails
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :shellfish
+name: shrimp
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :shellfish
+name: crayfish
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :shellfish
+name: squid
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :shellfish
+name: shucked clams
+--- !ruby/object:Food 
+freezer_end: 180
+freezer_start: 90
+fridge_end: 2
+fridge_start: 1
+major: :seafood_and_fish
+minor: :shellfish
+name: mussels
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: baby food
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: baking powder
+room_start: 540
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: baking soda
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: biscuit mix
+room_end: 540
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: bouillon cubes or granules
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: brownie mix
+room_end: 360
+room_start: 270
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: cake mix
+room_end: 360
+room_start: 270
+--- !ruby/object:Food 
+freezer_start: 180
+fridge_end: 120
+fridge_start: 60
+major: :staples_or_pantry_item
+minor: 
+name: candy
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: ketchup
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: catsup
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: chili sauce
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: cereals
+room_end: 360
+room_start: 180
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: chocolate
+room_start: 540
+--- !ruby/object:Food 
+fridge_start: 180
+major: :staples_or_pantry_item
+minor: 
+name: chocolate syrup
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: baking cocoa
+room_start: 240
+--- !ruby/object:Food 
+fridge_start: 180
+major: :staples_or_pantry_item
+minor: 
+name: shredded coconut
+room_start: 365
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: canned coffee
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: instant coffee
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: whole bean coffee
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: cornmeal
+room_start: 360
+--- !ruby/object:Food 
+freezer_start: 90
+major: :staples_or_pantry_item
+minor: 
+name: crackers
+room_start: 180
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_end: 240
+fridge_start: 180
+major: :staples_or_pantry_item
+minor: 
+name: white flour
+room_end: 240
+room_start: 180
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_end: 240
+fridge_start: 180
+major: :staples_or_pantry_item
+minor: 
+name: whole wheat flour
+room_end: 240
+room_start: 180
+--- !ruby/object:Food 
+freezer_start: 365
+fridge_end: 240
+fridge_start: 180
+major: :staples_or_pantry_item
+minor: 
+name: bread flour
+room_end: 240
+room_start: 180
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: gelatin
+room_start: 540
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: grits
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: herbs
+room_start: 180
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: honey
+room_start: 360
+--- !ruby/object:Food 
+fridge_start: 180
+major: :staples_or_pantry_item
+minor: 
+name: jelly
+room_start: 360
+--- !ruby/object:Food 
+fridge_start: 180
+major: :staples_or_pantry_item
+minor: 
+name: jam
+room_start: 360
+--- !ruby/object:Food 
+fridge_start: 180
+major: :staples_or_pantry_item
+minor: 
+name: preserves
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: molasses
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: marshmallow cream
+room_end: 120
+room_start: 90
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: marshmallows
+room_end: 90
+room_start: 60
+--- !ruby/object:Food 
+fridge_end: 90
+fridge_start: 60
+major: :staples_or_pantry_item
+minor: 
+name: mayonnaise
+room_end: 90
+room_start: 60
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: prepared yellow mustard
+room_start: 730
+--- !ruby/object:Food 
+freezer_start: 730
+fridge_start: 365
+major: :staples_or_pantry_item
+minor: 
+name: canned hazelnuts
+room_start: 120
+--- !ruby/object:Food 
+freezer_start: 730
+fridge_start: 365
+major: :staples_or_pantry_item
+minor: 
+name: canned walnuts
+room_start: 120
+--- !ruby/object:Food 
+freezer_start: 730
+fridge_start: 365
+major: :staples_or_pantry_item
+minor: 
+name: canned pecans
+room_start: 120
+--- !ruby/object:Food 
+freezer_start: 730
+fridge_start: 365
+major: :staples_or_pantry_item
+minor: 
+name: in-shell hazelnuts
+room_start: 120
+--- !ruby/object:Food 
+freezer_start: 730
+fridge_start: 365
+major: :staples_or_pantry_item
+minor: 
+name: in-shell walnuts
+room_start: 120
+--- !ruby/object:Food 
+freezer_start: 730
+fridge_start: 365
+major: :staples_or_pantry_item
+minor: 
+name: in-shell pecans
+room_start: 120
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: condensed milk
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: evaporated milk
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: canned milk
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: canned olives
+room_start: 365
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: pancake mix
+room_end: 270
+room_start: 180
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: pasta
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: peanut butter
+room_end: 270
+room_start: 180
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: pickles
+room_end: 730
+room_start: 365
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: pie crust mix
+room_start: 240
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: popcorn
+room_end: 730
+room_start: 365
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: instant potatoes
+room_end: 360
+room_start: 180
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: pudding mix
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: white rice
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: flavored rice
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: herb rice
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: bottled salad dressing
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: corn oil
+room_start: 540
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: olive oil
+room_start: 540
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: canola oil
+room_start: 540
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: sauce
+room_end: 360
+room_start: 180
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: gravy mix
+room_end: 360
+room_start: 180
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: shortening
+room_start: 540
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: whole spices
+room_end: 730
+room_start: 365
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: ground spices
+room_end: 730
+room_start: 365
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: granulated sugar
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: brown sugar
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: powdered sugar
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: sweetener
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: syrup
+room_start: 360
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: tea bags
+room_start: 540
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: instant tea
+room_start: 540
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: loose tea
+room_start: 540
+--- !ruby/object:Food 
+freezer_start: 150
+fridge_start: 7
+major: :staples_or_pantry_item
+minor: 
+name: tofu
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: vanilla extract
+room_start: 730
+--- !ruby/object:Food 
+major: :staples_or_pantry_item
+minor: 
+name: vinegar
+room_start: 730
+--- !ruby/object:Food 
+freezer_end: 730
+freezer_start: 365
+fridge_start: 42
+major: :staples_or_pantry_item
+minor: 
+name: yeast
+--- !ruby/object:Food 
+freezer_start: 365
+major: :vegetable
+minor: 
+name: commercially frozen
+--- !ruby/object:Food 
+fridge_start: 3
+major: :vegetable
+minor: 
+name: canned vegetables
+--- !ruby/object:Food 
+fridge_start: 7
+major: :vegetable
+minor: 
+name: artichoke
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 5
+fridge_start: 3
+major: :vegetable
+minor: 
+name: asparagus
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_start: 14
+major: :vegetable
+minor: 
+name: beets
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_start: 14
+major: :vegetable
+minor: 
+name: carrots
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 6
+fridge_start: 3
+major: :vegetable
+minor: 
+name: beans
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 6
+fridge_start: 3
+major: :vegetable
+minor: 
+name: broccoli
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 6
+fridge_start: 3
+major: :vegetable
+minor: 
+name: lima beans
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 6
+fridge_start: 3
+major: :vegetable
+minor: 
+name: summer squash
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+fridge_end: 14
+fridge_start: 7
+major: :vegetable
+minor: 
+name: bell peppers
+--- !ruby/object:Food 
+fridge_start: 7
+major: :vegetable
+minor: 
+name: cabbage
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_start: 7
+major: :vegetable
+minor: 
+name: cauliflower
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_start: 7
+major: :vegetable
+minor: 
+name: celery
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+major: :vegetable
+minor: 
+name: corn
+--- !ruby/object:Food 
+fridge_end: 5
+fridge_start: 3
+major: :vegetable
+minor: 
+name: green onion
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 5
+fridge_start: 3
+major: :vegetable
+minor: 
+name: collards
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 5
+fridge_start: 3
+major: :vegetable
+minor: 
+name: kale
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 5
+fridge_start: 3
+major: :vegetable
+minor: 
+name: mustard
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 5
+fridge_start: 3
+major: :vegetable
+minor: 
+name: spinach
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 5
+fridge_start: 3
+major: :vegetable
+minor: 
+name: swiss chard
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_start: 7
+major: :vegetable
+minor: 
+name: green beans
+--- !ruby/object:Food 
+fridge_start: 7
+major: :vegetable
+minor: 
+name: lettuce
+rfid: "36008B60F7"
+--- !ruby/object:Food 
+fridge_start: 7
+major: :vegetable
+minor: 
+name: salad greens
+--- !ruby/object:Food 
+freezer_end: 360
+freezer_start: 240
+fridge_end: 2
+fridge_start: 1
+major: :vegetable
+minor: 
+name: mushrooms
+--- !ruby/object:Food 
+fridge_start: 14
+major: :vegetable
+minor: 
+name: radish
+--- !ruby/object:Food 
+major: :vegetable
+minor: 
+name: squash
+room_end: 180
+room_start: 90
+--- !ruby/object:Food 
+freezer_end: 120
+freezer_start: 90
+major: :vegetable
+minor: 
+name: tomato
