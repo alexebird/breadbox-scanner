@@ -41,29 +41,10 @@ void loop()
         for (int i = 0; i < MSG_SIZE; i++)
             msg[i] = Serial.read();
 
-        if (VALID_RFID(msg)) {
-            /*for (int i = 1; i < ID_SIZE; i++)*/
-                /*Serial.print(msg[i]);*/
-
-            /*Serial.println();*/
-
+        if (VALID_RFID(msg))
             sendRFID();
-            /*jam();*/
-        }
-        /*else {*/
-            /*// Discard the message.*/
-            /*Serial.flush();*/
-        /*}*/
     }
 }
-
-/*void jam()*/
-/*{*/
-    /*DISABLE_READER();*/
-    /*delay(JAM_PERIOD);*/
-    /*Serial.flush();*/
-    /*ENABLE_READER();*/
-/*}*/
 
 void sendRFID()
 {
@@ -75,11 +56,8 @@ void sendRFID()
         msg[ID_SIZE] = '\0';
         // set id to the start of the acsii part of the rfid.
         char *id = msg + 1;
-        /*sprintf(request, "%s", id);*/
         Serial.println(id);
         client.println(id);
-        /*while (client.available())*/
-            /*client.read();*/
         client.stop();
         delay(JAM_PERIOD);
         Serial.flush();

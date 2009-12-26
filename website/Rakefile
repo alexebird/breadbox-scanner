@@ -1,0 +1,28 @@
+require 'rubygems'
+require 'rake'
+
+namespace "db" do
+  db = "food.db"
+
+  desc "Run the most recent migration."
+  task "migrate" => ["create"] do
+    mig = ENV['mig']
+    migrations = Dir.entries("migrations") - ['.', '..']
+    migrations.map! {|e| e.scan(/\d+(?=_)/).first }.sort!
+    #puts migrations.last
+    mig = migrations.last
+    system "sequel -m migrations -M #{mig} sqlite://#{db}"
+  end
+
+  desc "Create the sqlite3 database file"
+  task "create" do
+    unless File.exists? db
+      system "touch #{db}"
+    end
+  end
+
+  desc "Populate the database from the yaml file.\nWILL ERASE THE FOODS TABLE!!!"
+  task "popfoods" do
+    load 'tasks/popfoods.rb'
+  end
+end
