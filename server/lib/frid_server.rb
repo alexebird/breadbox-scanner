@@ -34,23 +34,23 @@ module Frid
         rescue RuntimeError => e
           Frid.logger.error e.message
         ensure
-          client.close unless client.closed?
+          client.close unless !client or client.closed?
         end
       end
     end
   end
 
   class Request
-    attr_reader :conn, :name, :args
+    attr_reader :user_id, :rfid
 
     def initialize(conn)
-      @conn = conn
-      req_str = @conn.gets 
+      #@conn = conn
+      req_str = conn.gets 
       if req_str
-        @args = req_str.chomp.split(/\s+/)
-        @name = @args.first
-        @args.delete_at(0)
-        Frid.logger.debug "Request: #{@name} #{@args.join ' '}"
+        args = req_str.chomp.split(/\s+/)
+        @user_id = args.first.to_i
+        @rfid = args.last
+        Frid.logger.debug self.to_s
       else
         err = "Empty request."
         raise err
@@ -58,8 +58,12 @@ module Frid
       end
     end
 
-    def puts(data)
-      @conn.puts data
+    def to_s
+      "<Request: user_id=#@user_id rfid=#@rfid>"
     end
+
+    #def puts(data)
+      #@conn.puts data
+    #end
   end
 end

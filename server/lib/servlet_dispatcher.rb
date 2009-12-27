@@ -6,7 +6,7 @@ module Frid
     end
     
     def dispatch(request)
-      @servlets[request.name].do_command(request) if @servlets[request.name]
+      @servlets['rfid'].do_command(request) if @servlets['rfid']
     end
 
     private
