@@ -1,0 +1,5 @@
+--- !ruby/object:User
+values:
+  :id: 1
+  :name: Bob Smith
+  :email: bob@smith.com
