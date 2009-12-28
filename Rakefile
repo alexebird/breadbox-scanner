@@ -5,7 +5,7 @@ require 'db/init'
 
 db = "db/food.db"
 
-namespace "db" do
+namespace :db do
 
   desc "Run the most recent migration."
   task :migrate , [:mig] => [db] do |t, args|
@@ -23,16 +23,21 @@ namespace "db" do
 
     desc "Populate the foods table."
     task :foods do
+      class YamlFood
+        attr_accessor :name, :rfid, :major, :minor, :room_start, :room_end,
+                      :fridge_start, :fridge_end, :freezer_start, :freezer_end
+      end
+
       Food.delete
 
       File.open('db/fixtures/foods.yaml') do |file|
         i = 0
         YAML.load_documents(file) do |f|
           food = Food.new(:name => f.name, :rfid => f.rfid,
-                      :major => f.major.to_s, :minor => f.minor.to_s,
-                      :room_start => f.room_start, :room_end => f.room_end,
-                      :fridge_start => f.fridge_start, :fridge_end => f.fridge_end,
-                      :freezer_start => f.freezer_start, :freezer_end => f.freezer_end)
+                          :major => f.major.to_s, :minor => f.minor.to_s,
+                          :room_start => f.room_start, :room_end => f.room_end,
+                          :fridge_start => f.fridge_start, :fridge_end => f.fridge_end,
+                          :freezer_start => f.freezer_start, :freezer_end => f.freezer_end)
           food.id = i+=1
           food.save
         end
@@ -62,10 +67,19 @@ file db do |t|
   sh "touch #{t.name}"
 end
 
-class YamlFood
-  attr_accessor :name, :rfid,
-                :major, :minor,
-                :room_start, :room_end,
-                :fridge_start, :fridge_end,
-                :freezer_start, :freezer_end
+namespace :run do
+  desc "Run the Scan server."
+  task :scan do
+    sh "ruby -C server init.rb"
+  end
+
+  desc "Run the web server."
+  task :web do
+    sh "ruby -C website start.rb"
+  end
+
+  desc "Run the mock arduino."
+  task :arduino do
+    sh "ruby -C arduino/mock/mock_arduino.rb"
+  end
 end
