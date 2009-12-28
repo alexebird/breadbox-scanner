@@ -6,6 +6,7 @@
 # this will force the controller to be mounted on: /otherurl
 
 class MainController < Controller
+
   # the index action is called automatically when no other action is specified
   def index
     @foods = Food.limit(10).reverse_order(:rfid)
