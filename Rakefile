@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'rake'
+require 'yaml'
+require 'db/init'
 
 namespace :db do
   db = "db/food.db"
@@ -7,29 +9,26 @@ namespace :db do
 
   desc "If mig is not specified, task will run the most recent migration.\n" +
        "Otherwise run the migration specified by mig."
-  task :migrate , [:mig] => [db] do |t, args|
+  task :migrate , [:mig] => [:create] do |t, args|
     if args.mig
       mig = args.mig
     else
       migrations = Dir.entries(mig_dir) - ['.', '..']
-      migrations.map! {|e| e.scan(/\d+(?=_)/).first }.sort!
+      migrations.map! {|e| e.scan(/\d+(?=_)/).first.to_i }.sort!
       mig = migrations.last
     end
     sh "sequel -m #{mig_dir} -M #{mig} sqlite://#{db}"
   end
   
-  desc "Create the sqlite3 database file"
-  file db do |t|
-    sh "touch #{t.name}"
+  desc "Create the sqlite3 database file."
+  task :create do
+    sh "touch #{db}"
   end
 
   namespace :pop do
-    require 'yaml'
 
     desc "Populate the foods table."
     task :foods do
-      require 'db/init'
-
       class YamlFood
         attr_accessor :name, :rfid, :major, :minor, :room_start, :room_end,
                       :fridge_start, :fridge_end, :freezer_start, :freezer_end
@@ -37,7 +36,7 @@ namespace :db do
 
       Food.delete
 
-      File.open('db/fixtures/foods.yaml') do |file|
+      File.open('db/fixtures/foods2.yaml') do |file|
         i = 0
         YAML.load_documents(file) do |f|
           food = Food.new(:name => f.name, :rfid => f.rfid,
@@ -53,8 +52,6 @@ namespace :db do
 
     desc "Populate the users table."
     task :users do
-      require 'db/init'
-
       User.delete
 
       File.open('db/fixtures/users.yaml') do |file|
@@ -68,6 +65,9 @@ namespace :db do
         end
       end
     end
+
+    desc "Populate all tables."
+    task :all => [:foods, :users]
   end
 end
 

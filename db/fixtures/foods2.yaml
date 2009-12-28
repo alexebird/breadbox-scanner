@@ -1,0 +1,22 @@
+--- !ruby/object:YamlFood 
+freezer_start: 30
+fridge_start: 7
+major: :"dairy_&_egg"
+minor: :dairy
+name: milk
+rfid: "17007E24F3"
+--- !ruby/object:YamlFood 
+fridge_end: 42
+fridge_start: 35
+major: :fruit
+minor: :fresh_fruit
+name: orange
+room_end: 4
+room_start: 3
+rfid: "0415ED52CF"
+--- !ruby/object:YamlFood 
+fridge_start: 7
+major: :vegetable
+minor: 
+name: lettuce
+rfid: "36008B60F7"
