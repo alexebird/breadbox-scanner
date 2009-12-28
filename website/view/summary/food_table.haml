@@ -1,0 +1,10 @@
+%table
+  %tr
+    %th RFID
+    %th Name
+  - foods.each do |food|
+    %tr
+      %td
+        = food.rfid
+      %td
+        = food.name
