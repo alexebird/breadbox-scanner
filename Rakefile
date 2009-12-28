@@ -1,28 +1,35 @@
 require 'rubygems'
 require 'rake'
-require 'yaml'
-require 'db/init'
-
-db = "db/food.db"
 
 namespace :db do
+  db = "db/food.db"
+  mig_dir = "db/migrations"
 
-  desc "Run the most recent migration."
+  desc "If mig is not specified, task will run the most recent migration.\n" +
+       "Otherwise run the migration specified by mig."
   task :migrate , [:mig] => [db] do |t, args|
     if args.mig
       mig = args.mig
     else
-      migrations = Dir.entries("db/migrations") - ['.', '..']
+      migrations = Dir.entries(mig_dir) - ['.', '..']
       migrations.map! {|e| e.scan(/\d+(?=_)/).first }.sort!
       mig = migrations.last
     end
-    sh "sequel -m db/migrations -M #{mig} sqlite://#{db}"
+    sh "sequel -m #{mig_dir} -M #{mig} sqlite://#{db}"
+  end
+  
+  desc "Create the sqlite3 database file"
+  file db do |t|
+    sh "touch #{t.name}"
   end
 
   namespace :pop do
+    require 'yaml'
 
     desc "Populate the foods table."
     task :foods do
+      require 'db/init'
+
       class YamlFood
         attr_accessor :name, :rfid, :major, :minor, :room_start, :room_end,
                       :fridge_start, :fridge_end, :freezer_start, :freezer_end
@@ -46,6 +53,8 @@ namespace :db do
 
     desc "Populate the users table."
     task :users do
+      require 'db/init'
+
       User.delete
 
       File.open('db/fixtures/users.yaml') do |file|
@@ -62,13 +71,9 @@ namespace :db do
   end
 end
 
-desc "Create the sqlite3 database file"
-file db do |t|
-  sh "touch #{t.name}"
-end
 
 namespace :run do
-  desc "Run the Scan server."
+  desc "Run the server which listens for RFID scans."
   task :scan do
     sh "ruby -C server init.rb"
   end
@@ -80,6 +85,6 @@ namespace :run do
 
   desc "Run the mock arduino."
   task :arduino do
-    sh "ruby -C arduino/mock/mock_arduino.rb"
+    sh "ruby -C arduino/mock mock_arduino.rb"
   end
 end
