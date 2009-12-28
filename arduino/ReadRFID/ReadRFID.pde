@@ -19,7 +19,7 @@
 #define DISABLE_READER() digitalWrite(JAM_PIN, HIGH);
 #define ENABLE_READER()  digitalWrite(JAM_PIN, LOW);
 
-uint user_id = 1;
+unsigned int user_id = 1;
 char msg[MSG_SIZE];
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 byte ip[] = { 192, 168, 2, 66 };
