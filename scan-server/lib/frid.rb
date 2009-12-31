@@ -1,34 +1,40 @@
 require 'logger'
-require 'socket'
 
 module Frid
 
   class << self
     @@logger = Logger.new(STDOUT)
+    @@logger.level = Logger::DEBUG
+
+    def logger=(logger)
+      @@logger = logger
+    end
 
     def logger
       @@logger
     end
-
-    def log_level=(level)
-      @@logger.level = level
-    end
-
-    def logger=(logger, level=Logger::INFO)
-      @@logger = logger
-      @@logger.level = level
-    end
   end
 
-  #def Frid.send_arduino(cmd)
-    #host, port = 'localhost', 5248
-    #TCPSocket.open(host, port) do |s|
-      #puts " sending: #{cmd}"
-      #s.puts cmd
-      #while line = s.gets
-        #line.chomp!
-        #puts "response: #{line}"
-      #end
-    #end
-  #end
+end
+
+module Kernel
+  def debug(msg)
+    Frid.logger.debug msg if Frid.logger
+  end
+
+  def info(msg)
+    Frid.logger.info msg if Frid.logger
+  end
+  
+  def warn(msg)
+    Frid.logger.warn msg if Frid.logger
+  end
+
+  def error(msg)
+    Frid.logger.error msg if Frid.logger
+  end
+
+  def fatal(msg)
+    Frid.logger.fatal msg if Frid.logger
+  end
 end
