@@ -15,7 +15,7 @@ module Frid
 
     def load_servlets
       @servlets = {}
-      Dir.glob("servlets/*_servlet.rb").each do |servlet|
+      Dir.glob("lib/frid/servlets/*_servlet.rb").each do |servlet|
         load_servlet servlet
       end
     end

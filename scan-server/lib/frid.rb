@@ -1,7 +1,6 @@
 require 'logger'
 
 module Frid
-
   class << self
     @@logger = Logger.new(STDOUT)
     @@logger.level = Logger::DEBUG
@@ -14,7 +13,6 @@ module Frid
       @@logger
     end
   end
-
 end
 
 module Kernel

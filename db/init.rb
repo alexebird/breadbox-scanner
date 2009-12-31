@@ -8,3 +8,4 @@ DB.loggers << Logger.new(STDOUT)
 # Here go the required models:
 require DB_ROOT + '/model/food'
 require DB_ROOT + '/model/user'
+require DB_ROOT + '/model/scan'
