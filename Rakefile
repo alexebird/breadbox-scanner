@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'rake'
 require 'yaml'
-require 'db/init'
 
 namespace :db do
   db = "db/food.db"
@@ -34,6 +33,7 @@ namespace :db do
                       :fridge_start, :fridge_end, :freezer_start, :freezer_end
       end
 
+      require 'db/init'
       Food.delete
 
       File.open('db/fixtures/foods2.yaml') do |file|
@@ -52,6 +52,7 @@ namespace :db do
 
     desc "Populate the users table."
     task :users do
+      require 'db/init'
       User.delete
 
       File.open('db/fixtures/users.yaml') do |file|
@@ -74,8 +75,8 @@ end
 
 namespace :run do
   desc "Run the server which listens for RFID scans."
-  task :scan do
-    sh "ruby -C server init.rb"
+  task :server do
+    sh "ruby -C scan-server init.rb"
   end
 
   desc "Run the web server."
@@ -84,7 +85,28 @@ namespace :run do
   end
 
   desc "Run the mock arduino."
-  task :arduino do
-    sh "ruby -C arduino/mock mock_arduino.rb"
+  task :scanner do
+    sh "ruby -C scanner/mock mock_arduino.rb"
+  end
+end
+
+namespace :doc do
+  desc "Generate all rdocs."
+  task :all => [:readme]
+
+  desc "Generate rdoc for the README."
+  task :readme do
+    sh "rdoc README"
+  end
+end
+
+namespace :test do
+  namespace :server do
+    desc "Run all scan server tests."
+    task :all do
+      cd "scan-server" do
+        sh "spec --format specdoc -c spec/frid_server_spec.rb"
+      end
+    end
   end
 end
