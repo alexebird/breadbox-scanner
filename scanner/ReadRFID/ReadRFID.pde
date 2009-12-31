@@ -10,6 +10,7 @@
 #define ID_SIZE    ((MSG_SIZE) - 1)
 #define JAM_PERIOD 1000
 #define JAM_PIN    4
+#define BUTTON_PIN 2
 
 #define RFID_START_BYTE 0x0A
 #define RFID_END_BYTE   0x0D
@@ -29,6 +30,7 @@ Client client(server, 7001);
 
 void setup()
 {
+    pinMode(BUTTON_PIN, INPUT);
     pinMode(JAM_PIN, OUTPUT);
     digitalWrite(JAM_PIN, LOW);
 
