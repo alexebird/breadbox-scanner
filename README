@@ -1,5 +1,10 @@
-Main goal: quick and easy to use, minimal manual data entry
+= Food: Project for Innovation Days and the NEST competition.
+Author:: Alex Bird
+Copyright:: Alex Bird 2009-2010.
 
+=== Main goal: quick and easy to use, minimal manual data entry
+
+=== General Ideas
 iphone & android
 * take a picture of the food
   * how to extract meaningful information?
@@ -8,7 +13,7 @@ iphone & android
   * dont want to pay for existing barcode reading software
   * need extensive barcode database with food
 
-RFID
+=== RFID
 * rfid tags would be pre-associated with different types of commonly perishable foods.
 * custom associations
 * database of foods with information such as 
@@ -18,7 +23,8 @@ RFID
 * $ savings
 * real market data
 
-Requirements for scanner <-> scan server communication:
+=== Requirements for scanner <-> scan server communication:
 * When a user scans something, information about that item should come up on the LCD screen.  The scanner must send the ID to the scan server and the scan server will send back the text to be diplayed on the screen.
   * Caching...
-* If a user scans something twice too quickly, they should have to 
+* If a user scans something multiple times too quickly, they should have to confirm that they wanted to scan.  The scan server should send a message to the scanner to prompt for user feedback.
+* There should be a way for the user to list their foods on the LCD screen (press a button on the scanner).
