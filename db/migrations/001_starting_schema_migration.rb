@@ -37,5 +37,6 @@ class CreateStartingSchema < Sequel::Migration
     drop_table :foods
     drop_table :users
     drop_table :scans
+    drop_table :foods_users
   end
 end
