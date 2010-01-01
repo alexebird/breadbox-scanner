@@ -108,5 +108,12 @@ namespace :test do
         sh "spec --format specdoc -c spec/frid_server_spec.rb"
       end
     end
+
+    desc "Test Frid module methods."
+    task :fridmodule do
+      cd "scan-server" do
+        sh "spec --format specdoc -c spec/time_ago_in_words_spec.rb"
+      end
+    end
   end
 end

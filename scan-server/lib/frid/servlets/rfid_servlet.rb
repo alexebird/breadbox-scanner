@@ -19,15 +19,9 @@ module Frid
 
       foods.each do |food|
         scan = Scan.filter(:food_id => food.id, :user_id => user.id).reverse_order(:scan_time).limit(1).first
-        request.puts food.to_lcd_str + " " + Frid.hours_ago_in_words(scan.scan_time.to_i)
+        request.puts food.to_lcd_str + " " + Frid.time_ago_in_words(scan.scan_time.to_i)
       end
     end
   end
 
-  def Frid.hours_ago_in_words(secs)
-    hours = (Time.now.to_i - secs) / 3600.0
-    hours.round!
-    when...
-    "#{hours} hours ago"
-  end
 end

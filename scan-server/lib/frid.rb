@@ -1,4 +1,5 @@
 require 'logger'
+require './lib/kernel'
 
 module Frid
   class << self
@@ -12,27 +13,24 @@ module Frid
     def logger
       @@logger
     end
-  end
-end
 
-module Kernel
-  def debug(msg)
-    Frid.logger.debug msg if Frid.logger
-  end
-
-  def info(msg)
-    Frid.logger.info msg if Frid.logger
-  end
-  
-  def warn(msg)
-    Frid.logger.warn msg if Frid.logger
-  end
-
-  def error(msg)
-    Frid.logger.error msg if Frid.logger
-  end
-
-  def fatal(msg)
-    Frid.logger.fatal msg if Frid.logger
+    def time_ago_in_words(time)
+      mins = (Time.now.to_i - time.to_i) / 60.0
+      case mins
+        when 0 then "less than a minute ago"
+        when 1 then "1 minute ago"
+        when 2..45 then "#{mins.round} minutes ago"
+        when 46...90 then "1 hour ago"
+        when 90..1380 then "#{(mins / 60).round} hours ago"
+        when 1381..2160 then "1 day ago"
+        when 2161..8640 then "#{(mins / (60 * 24)).round} days ago"
+        when 8641..15120 then "1 week ago"
+        when 15121..40320 then "#{(mins / (60 * 24 * 7)).round} weeks ago"
+        when 40321..65700 then "1 month ago"
+        when 65701..481800 then "#{(mins / (60 * 24 * 30.42)).round} months ago"
+        when 481801..788000 then "1 year ago"
+        else "#{(mins / (60 * 24 * 365)).round} years ago"
+      end
+    end
   end
 end
