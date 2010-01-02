@@ -2,8 +2,8 @@ require 'scan_server'
 
 describe "ScanServer#time_ago_in_words()" do
   it "should use minutes for time up to 45 minutes" do
-    ScanServer.time_ago_in_words(Time.now - (60 * 0)).should == "less than a minute ago"
-    ScanServer.time_ago_in_words(Time.now - (60 * 1)).should == "1 minute ago"
+    ScanServer.time_ago_in_words(Time.now - (60 * 0)).should == "a minute ago"
+    ScanServer.time_ago_in_words(Time.now - (60 * 1)).should == "a minute ago"
     ScanServer.time_ago_in_words(Time.now - (60 * 2)).should == "2 minutes ago"
     ScanServer.time_ago_in_words(Time.now - (60 * 3)).should == "3 minutes ago"
     ScanServer.time_ago_in_words(Time.now - (60 * 44)).should == "44 minutes ago"

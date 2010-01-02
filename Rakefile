@@ -2,6 +2,8 @@ require 'rubygems'
 require 'rake'
 require 'yaml'
 
+
+
 namespace :db do
   db = "db/food.db"
   mig_dir = "db/migrations"
@@ -25,7 +27,6 @@ namespace :db do
   end
 
   namespace :pop do
-
     desc "Populate the foods table."
     task :foods do
       class YamlFood
@@ -66,10 +67,9 @@ namespace :db do
         end
       end
     end
-
-    desc "Populate all tables."
-    task :all => [:foods, :users]
   end
+  desc "Populate all tables."
+  task :pop => ['pop:foods', 'pop:users']
 end
 
 
@@ -91,29 +91,23 @@ namespace :run do
 end
 
 namespace :doc do
-  desc "Generate all rdocs."
-  task :all => [:readme]
-
   desc "Generate rdoc for the README."
   task :readme do
     sh "rdoc README"
   end
 end
+desc "Generate all rdocs."
+task :doc => ['doc:readme']
 
 namespace :test do
-  namespace :server do
-    desc "Run all scan server tests."
-    task :all do
-      cd "scan-server" do
-        sh "spec --format specdoc -c spec/scan_server_server_spec.rb"
-      end
-    end
-
-    desc "Test Frid module methods."
-    task :fridmodule do
-      cd "scan-server" do
-        sh "spec --format specdoc -c spec/time_ago_in_words_spec.rb"
-      end
+  desc "Run all scan server tests."
+  task :scanserver do
+    cd "scan-server" do
+      sh "spec --format specdoc -c spec/scan_server_server_spec.rb"
+      sh "spec --format specdoc -c spec/time_ago_in_words_spec.rb"
     end
   end
+
 end
+desc "Run all tests."
+task :test => ['test:scanserver']

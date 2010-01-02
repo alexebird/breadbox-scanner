@@ -20,8 +20,7 @@ module ScanServer
       mins = (Time.now.to_i - time.to_i) / 60.0
       mins = mins.round
       case mins
-        when 0 then "less than a minute ago"
-        when 1 then "1 minute ago"
+        when 0..1 then "a minute ago"
         when 2..45 then "#{mins} minutes ago"
         when 46...90 then "1 hour ago"
         when 90..1380 then "#{(mins / 60.0).round} hours ago"

@@ -43,9 +43,9 @@ class Scanner
   end
 end
 
-scan_white = Gtk::Button.new("Scan Lettuce")
-scan_black = Gtk::Button.new("Scan Orange")
-scan_blue = Gtk::Button.new("Scan Milk")
+scan_white = Gtk::Button.new("Scan _Lettuce", true)
+scan_black = Gtk::Button.new("Scan _Orange", true)
+scan_blue = Gtk::Button.new("Scan _Milk", true)
 scan_vbox = Gtk::VButtonBox.new
 scan_vbox.layout_style = Gtk::ButtonBox::START
 scan_vbox.spacing = 3
@@ -70,7 +70,7 @@ scrolled_win = Gtk::ScrolledWindow.new
 scrolled_win.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_ALWAYS)
 scrolled_win.add(output)
 
-user_action = Gtk::Button.new("User Action")
+user_action = Gtk::Button.new("_User Action", true)
 user_vbox = Gtk::VBox.new(false, 3)
 user_vbox.pack_start(server_label, false, false, 0)
 user_vbox.pack_start(scrolled_win, true, true, 3)
@@ -86,7 +86,7 @@ window = Gtk::Window.new("Scanner")
 window.signal_connect("delete_event") { Gtk.main_quit }
 window.border_width = 10
 window.add(window_hbox)
-window.set_size_request(600, 300)
+window.set_size_request(700, 500)
 window.resizable = false
 window.show_all
 
