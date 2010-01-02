@@ -1,14 +1,14 @@
-require 'frid/server'
+require 'scan-server/server'
 
-describe Frid::Server do
+describe ScanServer::Server do
   before(:all) do
-    Frid.logger = nil
+    ScanServer.logger = nil
   end
 
   it "should run then shutdown." do
     lambda {
       pid = fork {
-        f = Frid::Server.new
+        f = ScanServer::Server.new
         f.start
       }
       sleep 2
@@ -17,7 +17,7 @@ describe Frid::Server do
   end
 end
 
-#def Frid.send_arduino(cmd)
+#def ScanServer.send_arduino(cmd)
   #host, port = 'localhost', 5248
   #TCPSocket.open(host, port) do |s|
     #puts " sending: #{cmd}"

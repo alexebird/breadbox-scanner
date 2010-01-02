@@ -105,7 +105,7 @@ namespace :test do
     desc "Run all scan server tests."
     task :all do
       cd "scan-server" do
-        sh "spec --format specdoc -c spec/frid_server_spec.rb"
+        sh "spec --format specdoc -c spec/scan_server_server_spec.rb"
       end
     end
 

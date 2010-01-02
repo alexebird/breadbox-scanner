@@ -1,9 +1,9 @@
 require 'socket'
-require 'frid'
-require 'frid/servlet_dispatcher'
-require 'frid/request'
+require 'scan_server'
+require 'scan-server/servlet_dispatcher'
+require 'scan-server/request'
 
-module Frid
+module ScanServer
   class Server
     def initialize(host='0.0.0.0', port=7001)
       @host = host

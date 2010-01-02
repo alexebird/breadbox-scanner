@@ -1,5 +1,6 @@
 require 'rubygems'
-require 'frid/server'
+require 'scan-server/server'
+require 'kernel'
 
-frid = Frid::Server.new
+frid = ScanServer::Server.new
 frid.start

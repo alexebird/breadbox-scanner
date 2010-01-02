@@ -2,6 +2,7 @@
 
 require 'socket'
 require 'gtk2'
+require '../../scan-server/lib/scan_server'
 
 class Scanner
   def initialize(textbuf)
@@ -11,24 +12,34 @@ class Scanner
   end
 
   def send_scan(rfid)
-    cmd = "#@user_id #{rfid}"
-    begin
-      TCPSocket.open(@host, @port) do |s|
-        @output.append "Sending: #{cmd}"
-        s.puts cmd
-        resp = ""
-        while line = s.gets
-          resp << line
-        end
-        @output.append resp
-      end
-    rescue Exception => e
-      @output.append e
-    end
+    send_message "#{ScanServer::SCAN} #@user_id #{rfid}"
+  end
+
+  def send_inventory_request
+    send_message "#{ScanServer::INVENTORY} #@user_id"
   end
 
   def server_to_s
      "Scan server: #@host:#@port"
+  end
+
+  private
+
+  def send_message(cmd)
+    msg = ''
+    begin
+      TCPSocket.open(@host, @port) do |s|
+        msg = "Sending: #{cmd}\n"
+        s.puts cmd
+        while line = s.gets
+          msg << line
+        end
+      end
+    rescue Exception => e
+      msg << e
+    end
+
+    @output.append msg unless msg.empty?
   end
 end
 
@@ -45,8 +56,10 @@ scan_vbox.add(scan_blue)
 server_label = Gtk::Label.new
 
 output = Gtk::TextView.new
+output.modify_font(Pango::FontDescription.new("Monospace 12"))
 def output.append(text)
-  self.buffer.text = self.buffer.text + text + "\n"
+  self.buffer.insert(self.buffer.end_iter, text)
+  self.scroll_to_mark(self.buffer.create_mark(nil, self.buffer.end_iter, true), 0.0, false, 0.0, 1.0)
 end
 output.editable = false
 
@@ -78,7 +91,7 @@ window.resizable = false
 window.show_all
 
 user_action.signal_connect("clicked") {
-  output.append("user_action")
+  scanner.send_inventory_request
 }
 scan_white.signal_connect("clicked") {
   scanner.send_scan '36008B60F7'
