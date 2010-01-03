@@ -17,7 +17,7 @@ module ScanServer
         user.add_food(food)
       end
 
-      request.puts(Servlet.food_summary(user, foods))
+      request.puts(user.inventory_str)
     end
   end
 
