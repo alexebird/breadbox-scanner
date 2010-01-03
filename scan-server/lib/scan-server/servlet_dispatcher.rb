@@ -9,7 +9,7 @@ module ScanServer
     end
     
     def dispatch(request)
-      @servlets[request.type].execute(request)
+      @servlets[request.type].do_execute(request)
     end
   end
 end

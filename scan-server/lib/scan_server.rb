@@ -1,8 +1,8 @@
 require 'logger'
 
 module ScanServer
-  SCAN = 0x1
-  INVENTORY = 0x2
+  SCAN = 1
+  INVENTORY = 2
 
   class << self
     @@logger = Logger.new(STDOUT)
