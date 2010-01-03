@@ -67,6 +67,7 @@ scanner = Scanner.new(output)
 server_label.text = scanner.server_to_s
 
 scrolled_win = Gtk::ScrolledWindow.new
+scrolled_win.shadow_type = Gtk::SHADOW_IN
 scrolled_win.set_policy(Gtk::POLICY_AUTOMATIC, Gtk::POLICY_ALWAYS)
 scrolled_win.add(output)
 
