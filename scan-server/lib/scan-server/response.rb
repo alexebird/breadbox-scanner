@@ -1,20 +1,25 @@
 module ScanServer
   class Response
-    INVENTORY = 100
-    CONFIRM_SCAN = 200
+    INVENTORY = 10
+    CONFIRM_SCAN = 20
 
-    attr_reader :type
+    attr_accessor :type
 
-    def initialize(request, type, msg='')
+    def initialize(request)
       @conn = request.conn
+      @body = ''
     end
 
     def to_s
-      "<Response: type=#@type msg=#@msg>"
+      "<Response: type=#@type body=#@body>"
     end
 
-    def puts
-      @conn.puts("#@type #@msg".strip)
+    def puts(data)
+      @body << data
+    end
+
+    def send
+      @conn.puts("%02d#@body" % @type)
     end
   end
 end

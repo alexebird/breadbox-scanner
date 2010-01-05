@@ -1,5 +1,8 @@
 module ScanServer
   class Request
+    SCAN = 1
+    INVENTORY = 2
+
     attr_reader :type, :user_id, :options, :conn
 
     def initialize(conn)
@@ -20,10 +23,6 @@ module ScanServer
 
     def to_s
       "<Request: type=#@type user_id=#@user_id options=#@options>"
-    end
-
-    def puts(data)
-      @conn.puts data
     end
 
     private

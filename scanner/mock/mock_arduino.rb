@@ -2,7 +2,7 @@
 
 require 'socket'
 require 'gtk2'
-require '../../scan-server/lib/scan_server'
+require '../../scan-server/lib/scan-server/request'
 
 class Scanner
   def initialize(textbuf)
@@ -12,11 +12,11 @@ class Scanner
   end
 
   def send_scan(rfid)
-    send_message "#{ScanServer::SCAN} #@user_id #{rfid}"
+    send_message "#{ScanServer::Request::SCAN} #@user_id #{rfid}"
   end
 
   def send_inventory_request
-    send_message "#{ScanServer::INVENTORY} #@user_id"
+    send_message "#{ScanServer::Request::INVENTORY} #@user_id"
   end
 
   def server_to_s
@@ -25,21 +25,23 @@ class Scanner
 
   private
 
-  def send_message(cmd)
-    msg = ''
+  def send_message(request)
+    resp = ''
     begin
       TCPSocket.open(@host, @port) do |s|
-        msg = "Sending: #{cmd}\n"
-        s.puts cmd
+        @output.puts "Sending: #{request}"
+        s.puts request
+        type = s.read(2)
+        @output.puts "Response: type=#{type} body="
         while line = s.gets
-          msg << line
+          resp << line
         end
       end
     rescue Exception => e
-      msg << e
+      resp << e
     end
 
-    @output.append msg unless msg.empty?
+    @output.print resp unless resp.empty?
   end
 end
 
@@ -57,10 +59,17 @@ server_label = Gtk::Label.new
 
 output = Gtk::TextView.new
 output.modify_font(Pango::FontDescription.new("Monospace 12"))
-def output.append(text)
-  self.buffer.insert(self.buffer.end_iter, text)
-  self.scroll_to_mark(self.buffer.create_mark(nil, self.buffer.end_iter, true), 0.0, false, 0.0, 1.0)
+class << output
+  def print(text)
+    self.buffer.insert(self.buffer.end_iter, text)
+    self.scroll_to_mark(self.buffer.create_mark(nil, self.buffer.end_iter, true), 0.0, false, 0.0, 1.0)
+  end
+  
+  def puts(text)
+    print(text + "\n")
+  end
 end
+
 output.editable = false
 
 scanner = Scanner.new(output)

@@ -33,10 +33,10 @@ module ScanServer
       info "Starting"
       loop do
         begin
-          info "Waiting for connection."
           client = @server.accept
           request = Request.new(client)
           @dispatcher.dispatch(request)
+          info "Request completed for #{client.peeraddr[3]}:#{client.peeraddr[1]}."
         rescue IOError => e
           error "TCPServer-related error: " + e.message
         rescue RuntimeError => e

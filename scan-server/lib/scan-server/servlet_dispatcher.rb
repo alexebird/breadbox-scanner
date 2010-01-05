@@ -5,7 +5,7 @@ require 'scan-server/scan_servlet'
 module ScanServer
   class ServletDispatcher
     def initialize
-      @servlets = {SCAN => ScanServlet.new, INVENTORY => InventoryServlet.new}
+      @servlets = {Request::SCAN => ScanServlet.new, Request::INVENTORY => InventoryServlet.new}
     end
     
     def dispatch(request)
