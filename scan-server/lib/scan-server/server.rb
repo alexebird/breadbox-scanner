@@ -35,8 +35,9 @@ module ScanServer
         begin
           client = @server.accept
           request = Request.new(client)
+          info "Serving #{request}."
           @dispatcher.dispatch(request)
-          info "Request completed for #{client.peeraddr[3]}:#{client.peeraddr[1]}."
+          info "Request completed for #{request}."
         rescue IOError => e
           error "TCPServer-related error: " + e.message
         rescue RuntimeError => e
