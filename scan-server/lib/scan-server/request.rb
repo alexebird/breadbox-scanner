@@ -2,8 +2,6 @@ module ScanServer
   class Request
     SCAN = 10
     INVENTORY = 20
-    CONFIRM_YES = 30
-    CONFIRM_NO = 31
 
     attr_reader :type, :user_id, :options, :conn, :peeraddr
 
@@ -25,14 +23,6 @@ module ScanServer
 
     def to_s
       "<Request: host=#@peeraddr type=#@type user_id=#@user_id options=#@options>"
-    end
-
-    def is_confirm_yes?
-      return @type == CONFIRM_YES
-    end
-
-    def is_confirm_yes?
-      return @type == CONFIRM_NO
     end
 
     def is_scan?
