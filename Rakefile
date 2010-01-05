@@ -2,8 +2,6 @@ require 'rubygems'
 require 'rake'
 require 'yaml'
 
-
-
 namespace :db do
   db = "db/food.db"
   mig_dir = "db/migrations"
