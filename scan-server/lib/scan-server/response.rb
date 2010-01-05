@@ -1,7 +1,7 @@
 module ScanServer
   class Response
-    INVENTORY = 10
-    CONFIRM_SCAN = 20
+    INVENTORY = 20
+    CONFIRM = 30
 
     attr_accessor :type
 
