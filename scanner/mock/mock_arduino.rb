@@ -11,7 +11,7 @@ class Scanner
     @output = textbuf
   end
 
-  def send_scan(rfid)
+  def send_scan_request(rfid)
     send_message "#{ScanServer::Request::SCAN} #@user_id #{rfid}"
   end
 
@@ -19,8 +19,14 @@ class Scanner
     send_message "#{ScanServer::Request::INVENTORY} #@user_id"
   end
 
+  def send_confirm_yes_request
+  end
+
+  def send_confirm_no_request
+  end
+
   def server_to_s
-     "Scan server: #@host:#@port"
+    "Scan server: #@host:#@port"
   end
 
   private
@@ -29,16 +35,16 @@ class Scanner
     resp = ''
     begin
       TCPSocket.open(@host, @port) do |s|
-        @output.puts "Sending: #{request}"
+        @output.puts "Request: #{request}"
         s.puts request
         type = s.read(2)
-        @output.puts "Response: type=#{type} body="
+        @output.puts "Response: type=#{type} body:"
         while line = s.gets
           resp << line
         end
       end
     rescue Exception => e
-      resp << e
+      @output.puts e.message
     end
 
     @output.print resp unless resp.empty?
