@@ -60,6 +60,7 @@ namespace :db do
           user.id = u.values[:id]
           user.name = u.values[:name]
           user.email = u.values[:email]
+          user.scanner_id = u.values[:scanner_id]
           puts user.inspect
           user.save
         end
