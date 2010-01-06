@@ -110,13 +110,13 @@ user_action.signal_connect("clicked") {
   scanner.send_inventory_request
 }
 scan_white.signal_connect("clicked") {
-  scanner.send_scan '36008B60F7'
+  scanner.send_scan_request '36008B60F7'
 }
 scan_black.signal_connect("clicked") {
-  scanner.send_scan '0415ED52CF'
+  scanner.send_scan_request '0415ED52CF'
 }
 scan_blue.signal_connect("clicked") {
-  scanner.send_scan '17007E24F3'
+  scanner.send_scan_request '17007E24F3'
 }
 
 Gtk.main
