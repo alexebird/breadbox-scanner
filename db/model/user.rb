@@ -21,6 +21,6 @@ class User < Sequel::Model
     self.inventory.each do |food|
       response << (pattern % [food.to_lcd_str, ScanServer.time_ago_in_words(food[:scan].to_i)])
     end
-    return response
+    return response.chomp
   end
 end

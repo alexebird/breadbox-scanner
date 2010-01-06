@@ -7,7 +7,7 @@ require '../../scan-server/lib/scan-server/request'
 class Scanner
   def initialize(textbuf)
     @scanner_id = 1
-    @host, @port = "localhost", 7001
+    @host, @port = "192.168.1.29", 5000
     @output = textbuf
   end
 

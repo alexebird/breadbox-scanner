@@ -33,10 +33,10 @@ typedef struct __response_header {
 
 char scan_bytes[SCAN_SIZE];
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-byte ip[] = { 192, 168, 2, 66 };
-byte scan_server[] = { 192, 168, 2, 29 };
+byte ip[] = { 192, 168, 1, 66 };
+byte scan_server[] = { 192, 168, 1, 29 };
 
-Client client(scan_server, 7001);
+Client client(scan_server, 5000);
 
 void setup()
 {
@@ -84,6 +84,7 @@ void send_scan_request()
         client.println(rfid);
 
         // Send the request over serial for debugging.
+        Serial.println();
         Serial.print(SCAN_REQUEST);
         Serial.print(' ');
         Serial.print(SCANNER_ID);
@@ -92,14 +93,21 @@ void send_scan_request()
 
         response_header hdr;
         
-        if (client.available() >= RESPONSE_TYPE_SIZE) {
-            hdr.type[0] = client.read();
-            hdr.type[1] = client.read();
-            hdr.type[2] = '\0';
+        while (client.connected()) {
+            if (client.available() >= sizeof(response_header) - 1) {
+                hdr.type[0] = client.read();
+                hdr.type[1] = client.read();
+                hdr.type[2] = '\0';
+                Serial.print("Response: type=");
+                Serial.println(hdr.type);
+                break;
+            }
         }
 
-        while (client.available()) {
-            Serial.print(char(client.read()));
+        while (client.connected()) {
+            if (client.available()) {
+                Serial.write(client.read());
+            }
         }
 
         client.stop();

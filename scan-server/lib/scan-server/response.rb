@@ -18,7 +18,9 @@ module ScanServer
     end
 
     def send
-      @conn.puts("#@type#@body")
+      contents = "#@type#@body"
+      debug contents
+      @conn.print(contents)
     end
   end
 end
