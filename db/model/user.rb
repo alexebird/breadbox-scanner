@@ -23,11 +23,4 @@ class User < Sequel::Model
     end
     return response
   end
-
-  # Returns the scan of food made by this user.
-  # [food] The food to get the last scan of.
-  #
-  #def last_scan(food)
-    #Scan.filter(:food_id => food.id, :user_id => self.id).reverse_order(:scan_time).limit(1).first
-  #end
 end

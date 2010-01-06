@@ -3,7 +3,7 @@ require '../db/init'
 module ScanServer
   class ScanServlet < Servlet
     def execute(request, response)
-      user = User[request.user_id]
+      user = User[:scanner_id => request.scanner_id]
       food = Food[:rfid => request.options.first]
       scan = Scan.new(:user => user, :food => food, :scan_time => Time.now)
       user.add_scan(scan)

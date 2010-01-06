@@ -18,6 +18,7 @@ class CreateStartingSchema < Sequel::Migration
       primary_key :id, :auto_increment => true, :null => false
       String :name
       String :email
+      Fixnum :scanner_id
     end
 
     create_table :scans do

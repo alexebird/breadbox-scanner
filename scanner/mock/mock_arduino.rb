@@ -6,23 +6,17 @@ require '../../scan-server/lib/scan-server/request'
 
 class Scanner
   def initialize(textbuf)
-    @user_id = 1
+    @scanner_id = 1
     @host, @port = "localhost", 7001
     @output = textbuf
   end
 
   def send_scan_request(rfid)
-    send_message "#{ScanServer::Request::SCAN} #@user_id #{rfid}"
+    send_request(ScanServer::Request::SCAN, rfid)
   end
 
   def send_inventory_request
-    send_message "#{ScanServer::Request::INVENTORY} #@user_id"
-  end
-
-  def send_confirm_yes_request
-  end
-
-  def send_confirm_no_request
+    send_request(ScanServer::Request::INVENTORY)
   end
 
   def server_to_s
@@ -31,14 +25,16 @@ class Scanner
 
   private
 
-  def send_message(request)
+  def send_request(type, *body)
     resp = ''
+    body = body.join ' '
+    request = "%d %d %s" % [type, @scanner_id, body]
     begin
       TCPSocket.open(@host, @port) do |s|
-        @output.puts "Request: #{request}"
-        s.puts request
-        type = s.read(2)
-        @output.puts "Response: type=#{type} body:"
+        @output.puts "Request: type=#{type} body=#{body}"
+        s.puts(request)
+        resp_type = s.read(2)
+        @output.puts "Response: type=#{resp_type} body:"
         while line = s.gets
           resp << line
         end

@@ -18,7 +18,7 @@ module ScanServer
     end
 
     def send
-      @conn.puts("%02d#@body" % @type)
+      @conn.puts("#@type#@body")
     end
   end
 end
