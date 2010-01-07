@@ -2,7 +2,7 @@
 require 'sequel'
 require 'logger'
 DB_ROOT = File.expand_path(File.dirname(__FILE__))
-DB = Sequel.connect("sqlite://#{DB_ROOT}/food.db")
+DB = Sequel.connect("sqlite://#{DB_ROOT}/development.db")
 DB.loggers << Logger.new(STDOUT)
 
 # Here go the required models:

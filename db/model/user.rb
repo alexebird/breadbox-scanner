@@ -1,6 +1,12 @@
 class User < Sequel::Model
-  one_to_many :scans
+  one_to_many :scanners
   many_to_many :foods
+
+  def add_inventory_food(food, scan)
+    scan = Scan.new(:user => self, :food => food, :timestamp => Time.now)
+    puts self.foods_dataset
+    # TODO set the scan id to scan in the foods_users table
+  end
 
   # Returns a list of foods which the user has in their inventory.  The inventory list
   # is ordered with least recently scanned items first.

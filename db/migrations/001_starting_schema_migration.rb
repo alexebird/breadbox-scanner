@@ -3,7 +3,6 @@ class CreateStartingSchema < Sequel::Migration
     create_table :foods do
       primary_key :id, :auto_increment => true, :null => false
       String :name
-      String :rfid
       String :major
       String :minor
       Fixnum :room_start 
@@ -12,24 +11,30 @@ class CreateStartingSchema < Sequel::Migration
       Fixnum :fridge_end
       Fixnum :freezer_start 
       Fixnum :freezer_end
+      String :rfid, :size => 10, :fixed => true
     end
 
     create_table :users do
       primary_key :id, :auto_increment => true, :null => false
       String :name
       String :email
-      Fixnum :scanner_id
     end
 
     create_table :scans do
       primary_key :id, :auto_increment => true, :null => false
       Fixnum :food_id
-      Fixnum :user_id
-      DateTime :scan_time
+      Fixnum :scanner_id
+      DateTime :timestamp
     end
 
     create_table :foods_users do
       Fixnum :food_id
+      Fixnum :user_id
+      Fixnum :scan_id
+    end
+
+    create_table :scanners do
+      primary_key :id, :auto_increment => false, :null => false
       Fixnum :user_id
     end
   end

@@ -3,7 +3,7 @@ require 'rake'
 require 'yaml'
 
 namespace :db do
-  db = "db/food.db"
+  db = "db/development.db"
   mig_dir = "db/migrations"
 
   desc "If mig is not specified, task will run the most recent migration.\n" +
@@ -24,26 +24,21 @@ namespace :db do
     sh "touch #{db}"
   end
 
+  desc "Run the Sequel console."
+  task :console do
+    sh "sequel sqlite://#{db}"
+  end
+
   namespace :pop do
     desc "Populate the foods table."
     task :foods do
-      class YamlFood
-        attr_accessor :name, :rfid, :major, :minor, :room_start, :room_end,
-                      :fridge_start, :fridge_end, :freezer_start, :freezer_end
-      end
-
       require 'db/init'
       Food.delete
+      Food.unrestrict_primary_key
 
-      File.open('db/fixtures/foods2.yaml') do |file|
-        i = 0
+      File.open('db/fixtures/foods.yml') do |file|
         YAML.load_documents(file) do |f|
-          food = Food.new(:name => f.name, :rfid => f.rfid,
-                          :major => f.major.to_s, :minor => f.minor.to_s,
-                          :room_start => f.room_start, :room_end => f.room_end,
-                          :fridge_start => f.fridge_start, :fridge_end => f.fridge_end,
-                          :freezer_start => f.freezer_start, :freezer_end => f.freezer_end)
-          food.id = i+=1
+          food = Food.new(f.values)
           food.save
         end
       end
@@ -53,15 +48,11 @@ namespace :db do
     task :users do
       require 'db/init'
       User.delete
+      User.unrestrict_primary_key
 
-      File.open('db/fixtures/users.yaml') do |file|
+      File.open('db/fixtures/users.yml') do |file|
         YAML.load_documents(file) do |u|
-          user = User.new
-          user.id = u.values[:id]
-          user.name = u.values[:name]
-          user.email = u.values[:email]
-          user.scanner_id = u.values[:scanner_id]
-          puts user.inspect
+          user = User.new(u.values)
           user.save
         end
       end

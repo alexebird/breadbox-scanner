@@ -1,0 +1,39 @@
+--- !ruby/object:Food 
+values:
+  :id: 1
+  :name: milk
+  :major: :"dairy_&_egg"
+  :minor: :dairy
+  :room_start:
+  :room_end:
+  :fridge_start: 7
+  :fridge_end:
+  :freezer_start: 30
+  :freezer_end:
+  :rfid: "17007E24F3"
+--- !ruby/object:Food 
+values:
+  :id: 2
+  :name: orange
+  :major: :fruit
+  :minor: :fresh_fruit
+  :room_end: 4
+  :room_start: 3
+  :fridge_end: 42
+  :fridge_start: 35
+  :freezer_start:
+  :freezer_end:
+  :rfid: "0415ED52CF"
+--- !ruby/object:Food 
+values:
+  :id: 3
+  :name: lettuce
+  :major: :vegetable
+  :minor: 
+  :room_start:
+  :room_end:
+  :fridge_start: 7
+  :fridge_end:
+  :freezer_start:
+  :freezer_end:
+  :rfid: "36008B60F7"
