@@ -2,13 +2,16 @@ require 'rubygems'
 require 'rake'
 require 'yaml'
 
+default_db = "development"
+ENV['db_env'] = default_db
+
 namespace :db do
-  db = "db/development.db"
-  mig_dir = "db/migrations"
+  db = Proc.new { "db/#{ENV['db_env']}.db" }
 
   desc "If mig is not specified, task will run the most recent migration.\n" +
        "Otherwise run the migration specified by mig."
   task :migrate , [:mig] => [:create] do |t, args|
+    mig_dir = "db/migrations"
     if args.mig
       mig = args.mig
     else
@@ -16,17 +19,22 @@ namespace :db do
       migrations.map! {|e| e.scan(/\d+(?=_)/).first.to_i }.sort!
       mig = migrations.last
     end
-    sh "sequel -m #{mig_dir} -M #{mig} sqlite://#{db}"
+    sh "sequel -m #{mig_dir} -M #{mig} sqlite://#{db.call}"
   end
   
   desc "Create the sqlite3 database file."
   task :create do
-    sh "touch #{db}"
+    sh "touch #{db.call}"
   end
 
   desc "Run the Sequel console."
   task :console do
-    sh "sequel sqlite://#{db}"
+    sh "irb -r rubygems -r sequel -r db/init"
+  end
+
+  desc "Delete sqlite database files."
+  task :clobber do
+    sh "rm -v db/*.db"
   end
 
   namespace :pop do
@@ -38,8 +46,7 @@ namespace :db do
 
       File.open('db/fixtures/foods.yml') do |file|
         YAML.load_documents(file) do |f|
-          food = Food.new(f.values)
-          food.save
+          Food.create(f.values)
         end
       end
     end
@@ -52,14 +59,26 @@ namespace :db do
 
       File.open('db/fixtures/users.yml') do |file|
         YAML.load_documents(file) do |u|
-          user = User.new(u.values)
-          user.save
+          User.create(u.values)
+        end
+      end
+    end
+
+    desc "Populate the scanners table."
+    task :scanners do
+      require 'db/init'
+      Scanner.delete
+      Scanner.unrestrict_primary_key
+
+      File.open('db/fixtures/scanners.yml') do |file|
+        YAML.load_documents(file) do |s|
+          Scanner.create(s.values)
         end
       end
     end
   end
   desc "Populate all tables."
-  task :pop => ['pop:foods', 'pop:users']
+  task :pop => ['pop:foods', 'pop:users', 'pop:scanners']
 end
 
 
@@ -90,14 +109,25 @@ desc "Generate all rdocs."
 task :doc => ['doc:readme']
 
 namespace :test do
+  task :setup_test_db do
+    ENV['db_env'] = 'test'
+    Rake::Task['db:migrate'].invoke
+    Rake::Task['db:pop'].invoke
+  end
+
   desc "Run all scan server tests."
   task :scanserver do
     cd "scan-server" do
-      sh "spec --format specdoc -c spec/scan_server_server_spec.rb"
-      sh "spec --format specdoc -c spec/time_ago_in_words_spec.rb"
+      sh "spec --format specdoc -c spec/"
     end
   end
 
+  desc "Run all model tests."
+  task :model => :setup_test_db do
+    cd "db" do
+      sh "spec -r init --format specdoc -c spec/"
+    end
+  end
 end
 desc "Run all tests."
-task :test => ['test:scanserver']
+task :test => ['test:scanserver', 'test:model']

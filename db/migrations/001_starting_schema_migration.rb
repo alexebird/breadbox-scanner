@@ -30,7 +30,6 @@ class CreateStartingSchema < Sequel::Migration
     create_table :foods_users do
       Fixnum :food_id
       Fixnum :user_id
-      Fixnum :scan_id
     end
 
     create_table :scanners do

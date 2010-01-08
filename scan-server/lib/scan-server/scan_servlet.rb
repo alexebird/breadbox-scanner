@@ -3,21 +3,14 @@ require '../db/init'
 module ScanServer
   class ScanServlet < Servlet
     def execute(request, response)
-      user = Scanner[request.scanner_id]
+      scanner = Scanner[request.scanner_id]
       food = Food[:rfid => request.options.first]
-      user.add_inventory_food(food)
-      user.add_scan(scan)
+      scan = Scan.create(:food => food, :scanner => scanner)
+      scanner.add_scan(scan)
       food.add_scan(scan)
-      scan.save
-
-      foods = user.foods
-      if foods.include? food
-        user.remove_food(food)
-      else
-        user.add_food(food)
-      end
-
-      response.puts(user.inventory_str)
+      user = scanner.user
+      user.add_food(food)
+      response.puts(InventoryServlet.inventory_str(user))
     end
   end
 

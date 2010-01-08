@@ -2,6 +2,7 @@ require 'socket'
 require 'scan_server'
 require 'scan-server/servlet_dispatcher'
 require 'scan-server/request'
+require 'kernel'
 
 module ScanServer
   class Server
