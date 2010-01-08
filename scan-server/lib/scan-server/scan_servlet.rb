@@ -9,9 +9,8 @@ module ScanServer
       scanner.add_scan(scan)
       food.add_scan(scan)
       user = scanner.user
-      user.add_food(food)
-      response.puts(InventoryServlet.inventory_str(user))
+      user.scan_food(food)
+      response.puts(InventoryServlet.inventory_foods_str(user))
     end
   end
-
 end

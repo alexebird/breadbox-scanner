@@ -81,7 +81,6 @@ namespace :db do
   task :pop => ['pop:foods', 'pop:users', 'pop:scanners']
 end
 
-
 namespace :run do
   desc "Run the server which listens for RFID scans."
   task :server do

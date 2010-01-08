@@ -12,7 +12,9 @@ end
 db = "#{ENV['db_env']}.db"
 puts "Using #{db} as database."
 DB = Sequel.connect("sqlite://#{DB_ROOT}/#{db}")
-DB.loggers << Logger.new(STDOUT)
+unless ENV['db_env'] == 'test'
+  DB.loggers << Logger.new(STDOUT)
+end
 
 # Here go the required models:
 require DB_ROOT + '/model/food'

@@ -4,7 +4,7 @@ module ScanServer
   class InventoryServlet < Servlet
     def execute(request, response)
       user = Scanner[request.scanner_id].user
-      response.puts(user.inventory_str)
+      response.puts(InventoryServlet.inventory_foods_str(user))
     end
 
     def self.inventory_foods_str(user)
@@ -12,8 +12,8 @@ module ScanServer
       response = pattern % %w(Item Scanned)
       response << '=' * 40
       response << "\n"
-      user.inventory.each do |food|
-        response << (pattern % [food.to_lcd_str, ScanServer.time_ago_in_words(food[:scan].to_i)])
+      user.foods.each do |food|
+        response << (pattern % [food.to_lcd_str, ''])
       end
       return response.chomp
     end

@@ -4,6 +4,6 @@ class Scan < Sequel::Model
 
   def initialize(values={}, from_db=false)
     super(values, from_db)
-    timestamp = Time.now
+    self.timestamp = Time.now
   end
 end
