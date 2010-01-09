@@ -4,6 +4,10 @@ require 'rake'
 default_db = "development"
 ENV['db_env'] = default_db
 
+task :prod do
+  ENV['db_env'] = 'production'
+end
+
 namespace :db do
   db = Proc.new { "db/#{ENV['db_env']}.db" }
 
@@ -33,7 +37,7 @@ namespace :db do
 
   desc "Delete sqlite database files."
   task :clobber do
-    sh "rm -v #{db.call}"
+    sh "rm -fv #{db.call}"
   end
 
   desc "Show the sqlite3 schema."
