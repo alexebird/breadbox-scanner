@@ -126,6 +126,15 @@ namespace :test do
     end
   end
 
+  namespace :scanserver do 
+    desc "Run the time in words methods."
+    task :time do
+      cd "scan_server" do
+        sh "spec --format specdoc -c spec/time_diff_in_words_spec.rb"
+      end
+    end
+  end
+
   desc "Run all model tests."
   task :model => :setup_test_db do
     cd "db" do
