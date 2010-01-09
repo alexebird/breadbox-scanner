@@ -93,8 +93,8 @@ namespace :run do
   end
 
   desc "Run the web server."
-  task :web do
-    sh "ruby -C website start.rb"
+  task :www do
+    sh "ruby -C www start.rb"
   end
 
   desc "Run the mock arduino."
