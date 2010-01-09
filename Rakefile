@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'rake'
-require 'yaml'
 
 default_db = "development"
 ENV['db_env'] = default_db
@@ -10,7 +9,7 @@ namespace :db do
 
   desc "If mig is not specified, task will run the most recent migration.\n" +
        "Otherwise run the migration specified by mig."
-  task :migrate , [:mig] => [:create] do |t, args|
+  task :migrate , [:mig] => [:clobber, :create] do |t, args|
     mig_dir = "db/migrations"
     if args.mig
       mig = args.mig
@@ -34,9 +33,15 @@ namespace :db do
 
   desc "Delete sqlite database files."
   task :clobber do
-    sh "rm -v db/*.db"
+    sh "rm -v #{db.call}"
   end
 
+  desc "Show the sqlite3 schema."
+  task :schema do
+    sh "sqlite3 #{db.call} .schema"
+  end
+
+  require 'yaml'
   namespace :pop do
     desc "Populate the foods table."
     task :foods do

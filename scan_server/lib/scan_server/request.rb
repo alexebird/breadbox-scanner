@@ -23,7 +23,7 @@ module ScanServer
     public
     def to_s
       vars = self.instance_variables - ['@socket', '@opts']
-      vars.map! {|var| "#{var}=#{self.instance_variable_get(var).inspect}" }
+      vars.map! {|var| "#{var.sub('@', '')}=#{self.instance_variable_get(var).inspect}" }
       return "<#{self.class}: #{vars.join ' '}>"
     end
 

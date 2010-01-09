@@ -3,6 +3,7 @@
 require 'socket'
 require 'gtk2'
 require '../../scan_server/lib/scan_server/request'
+require '../../scan_server/lib/scan_server/locations'
 
 class Scanner
   def initialize(textbuf)

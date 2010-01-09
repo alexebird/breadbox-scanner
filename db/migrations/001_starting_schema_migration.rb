@@ -24,16 +24,17 @@ class CreateStartingSchema < Sequel::Migration
       DateTime :updated_at
     end
 
+    create_table :foods_users do
+      Fixnum :food_id
+      Fixnum :user_id
+    end
+
     create_table :scans do
       primary_key :id, :auto_increment => true, :null => false
       Fixnum :food_id
       Fixnum :scanner_id
+      Fixnum :location
       DateTime :timestamp
-    end
-
-    create_table :foods_users do
-      Fixnum :food_id
-      Fixnum :user_id
     end
 
     create_table :scanners do
@@ -47,7 +48,8 @@ class CreateStartingSchema < Sequel::Migration
   def down
     drop_table :foods
     drop_table :users
-    drop_table :scans
     drop_table :foods_users
+    drop_table :scans
+    drop_table :scanners
   end
 end
