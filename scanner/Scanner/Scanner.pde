@@ -152,11 +152,12 @@ void send_scan_request()
                 hdr.type[1] = client.read();
                 hdr.type[2] = '\0';
                 Serial.print("Response: type=");
-                Serial.println(hdr.type);
+                Serial.print(hdr.type);
                 break;
             }
         }
 
+        Serial.println(" body=");
         while (client.connected()) {
             if (client.available()) {
                 Serial.write(client.read());
