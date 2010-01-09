@@ -40,6 +40,10 @@ byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 byte ip[] = { 192, 168, 1, 66 };
 byte scan_server[] = { 192, 168, 1, 29 };
 
+int last_button_state = LOW;
+int button_state;
+int location = LOCATION_FRIDGE;
+
 Client client(scan_server, 5000);
 
 void setup()
@@ -65,6 +69,47 @@ void loop()
 
         ENABLE_READER();
     }
+
+    button_state = digitalRead(BUTTON_PIN);
+
+    if (last_button_state == LOW && button_state == HIGH) {
+        switch(location) {
+            case LOCATION_FREEZER:
+                location = LOCATION_ROOM;
+                Serial.println("Switched to room.");
+                break;
+
+            case LOCATION_ROOM:
+                location = LOCATION_FRIDGE;
+                Serial.println("Switched to fridge.");
+                break;
+
+            case LOCATION_FRIDGE:
+                location = LOCATION_FREEZER;
+                Serial.println("Switched to freezer.");
+                break;
+        }
+        delay(50);
+    }
+
+    last_button_state = button_state;
+}
+
+void print_location()
+{
+    switch(location) {
+        case LOCATION_ROOM:
+            Serial.println("Currently adding to room.");
+            break;
+
+        case LOCATION_FRIDGE:
+            Serial.println("Currently adding to fridge.");
+            break;
+
+        case LOCATION_FREEZER:
+            Serial.println("Currently adding to freezer.");
+            break;
+    }
 }
 
 void send_scan_request()
@@ -87,7 +132,7 @@ void send_scan_request()
         client.print(' ');
         client.print(rfid);
         client.print(' ');
-        client.println(LOCATION_FRIDGE);
+        client.println(location);
 
         // Send the request over serial for debugging.
         Serial.println();
@@ -95,7 +140,9 @@ void send_scan_request()
         Serial.print(' ');
         Serial.print(SCANNER_ID);
         Serial.print(' ');
-        Serial.println(rfid);
+        Serial.print(rfid);
+        Serial.print(' ');
+        Serial.println(location);
 
         response_header hdr;
         
@@ -115,8 +162,10 @@ void send_scan_request()
                 Serial.write(client.read());
             }
         }
+        Serial.println();
 
         client.stop();
+        print_location();
         // Mysteriously required to work properly.
         Serial.flush();
     }

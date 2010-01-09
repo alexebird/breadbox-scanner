@@ -8,7 +8,7 @@ class Food < Sequel::Model
   many_to_many :users
 
   def last_scan_for(scanner)
-    self.scans_dataset.filter(:scanner_id => scanner.id).reverse_order.limit(1).first
+    self.scans_dataset.filter(:scanner_id => scanner.id).reverse_order(:timestamp).limit(1).first
   end
 
   # Time in words until the food exprires for the user belonging to the given scanner.
@@ -21,7 +21,7 @@ class Food < Sequel::Model
       when FoodLocations::ROOM then expires_in = self.room
       when FoodLocations::FRIDGE then expires_in = self.fridge
       when FoodLocations::FREEZER then expires_in = self.freezer
-      else puts 'wtf'
+      else raise "Unknown food location."
     end
     return "never" unless expires_in
     expires_in *= 24 * 60 * 60
