@@ -4,17 +4,18 @@ require '../db/init'
 module ScanServer
   class InventoryServlet < Servlet
     def execute(request, response)
-      user = Scanner[request.scanner_id].user
-      response.puts(InventoryServlet.inventory_foods_str(user))
+      scanner = Scanner[request.scanner_id]
+      response.puts(InventoryServlet.inventory_foods_str(scanner))
     end
 
-    def self.inventory_foods_str(user)
+    def self.inventory_foods_str(scanner)
+      user = scanner.user
       pattern = "| %-20s| %-15s|\n"
-      response = pattern % %w(Item Scanned)
+      response = pattern % %w(Item Expires)
       response << '=' * 40
       response << "\n"
       user.foods.each do |food|
-        response << (pattern % [food.to_lcd_str, food.last_scan_for(user)])
+        response << (pattern % [food.to_lcd_str, food.time_til_expires_for(scanner)])
       end
       return response.chomp
     end

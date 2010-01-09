@@ -5,12 +5,9 @@ class CreateStartingSchema < Sequel::Migration
       String :name
       String :major
       String :minor
-      Fixnum :room_start 
-      Fixnum :room_end
-      Fixnum :fridge_start 
-      Fixnum :fridge_end
-      Fixnum :freezer_start 
-      Fixnum :freezer_end
+      Fixnum :room
+      Fixnum :fridge
+      Fixnum :freezer
       String :rfid, :size => 10, :fixed => true
       DateTime :created_at
       DateTime :updated_at
