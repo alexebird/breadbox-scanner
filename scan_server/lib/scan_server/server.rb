@@ -1,9 +1,9 @@
 require 'socket'
 require 'scan_server'
-require 'scan-server/request'
-require 'scan-server/inventory_request'
-require 'scan-server/scan_request'
-require 'scan-server/servlet_dispatcher'
+require 'scan_server/request'
+require 'scan_server/inventory_request'
+require 'scan_server/scan_request'
+require 'scan_server/servlet_dispatcher'
 require 'kernel'
 
 module ScanServer

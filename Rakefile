@@ -84,7 +84,7 @@ end
 namespace :run do
   desc "Run the server which listens for RFID scans."
   task :server do
-    sh "ruby -C scan-server init.rb"
+    sh "ruby -C scan_server init.rb"
   end
 
   desc "Run the web server."
@@ -116,7 +116,7 @@ namespace :test do
 
   desc "Run all scan server tests."
   task :scanserver do
-    cd "scan-server" do
+    cd "scan_server" do
       sh "spec --format specdoc -c spec/"
     end
   end

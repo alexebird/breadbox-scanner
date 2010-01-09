@@ -1,5 +1,5 @@
-require 'scan-server/inventory_servlet'
-require 'scan-server/scan_servlet'
+require 'scan_server/inventory_servlet'
+require 'scan_server/scan_servlet'
 
 module ScanServer
   class ServletDispatcher

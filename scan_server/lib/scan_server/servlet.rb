@@ -1,4 +1,4 @@
-require 'scan-server/response'
+require 'scan_server/response'
 module ScanServer
   class Servlet
     def do_execute(request)

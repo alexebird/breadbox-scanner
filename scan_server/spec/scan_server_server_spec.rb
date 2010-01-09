@@ -1,4 +1,4 @@
-require 'scan-server/server'
+require 'scan_server/server'
 
 describe ScanServer::Server do
   before(:all) do
