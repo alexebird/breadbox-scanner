@@ -1,3 +1,4 @@
+require 'scan-server/servlet'
 require '../db/init'
 
 module ScanServer

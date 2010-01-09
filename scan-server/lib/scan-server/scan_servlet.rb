@@ -1,10 +1,11 @@
+require 'scan-server/servlet'
 require '../db/init'
 
 module ScanServer
   class ScanServlet < Servlet
     def execute(request, response)
       scanner = Scanner[request.scanner_id]
-      food = Food[:rfid => request.options.first]
+      food = Food[:rfid => request.rfid]
       scan = Scan.create(:food => food, :scanner => scanner)
       scanner.add_scan(scan)
       food.add_scan(scan)

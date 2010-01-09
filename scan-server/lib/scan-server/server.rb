@@ -1,7 +1,9 @@
 require 'socket'
 require 'scan_server'
-require 'scan-server/servlet_dispatcher'
 require 'scan-server/request'
+require 'scan-server/inventory_request'
+require 'scan-server/scan_request'
+require 'scan-server/servlet_dispatcher'
 require 'kernel'
 
 module ScanServer
@@ -31,11 +33,11 @@ module ScanServer
     end
 
     def start 
-      info "Starting"
+      info "Starting..."
       loop do
         begin
           client = @server.accept
-          request = Request.new(client)
+          request = Request.create_request(client)
           info "Serving #{request}."
           @dispatcher.dispatch(request)
           info "Request completed for #{request}."

@@ -28,14 +28,3 @@ iphone & android
   * Caching...
 * If a user scans something multiple times too quickly, they should have to confirm that they wanted to scan.  The scan server should send a message to the scanner to prompt for user feedback.
 * There should be a way for the user to list their foods on the LCD screen (press a button on the scanner).
-
-=== Request Format
-* Request tokens are separated by spaces.
-* Request type and the id of the sending scanner are always sent as the first two tokens.
-* Format:
-  * <tt>type scanner_id [options...]</tt>
-
-=== Response Format
-* Response tokens are space separated.
-* The response type is to be the first two bytes of the response, sent as a string.
-* Bytes 3 through N are the response body.

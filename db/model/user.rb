@@ -1,4 +1,5 @@
 class User < Sequel::Model
+  User.plugin :timestamps
   one_to_many :scanners
   many_to_many :foods
 

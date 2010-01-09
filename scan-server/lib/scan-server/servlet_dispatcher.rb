@@ -1,4 +1,3 @@
-require 'scan-server/servlet'
 require 'scan-server/inventory_servlet'
 require 'scan-server/scan_servlet'
 
@@ -7,7 +6,8 @@ module ScanServer
     def initialize
       @servlets = {
         Request::SCAN => ScanServlet.new,
-        Request::INVENTORY => InventoryServlet.new }
+        Request::INVENTORY => InventoryServlet.new
+      }
     end
     
     def dispatch(request)

@@ -12,12 +12,16 @@ class CreateStartingSchema < Sequel::Migration
       Fixnum :freezer_start 
       Fixnum :freezer_end
       String :rfid, :size => 10, :fixed => true
+      DateTime :created_at
+      DateTime :updated_at
     end
 
     create_table :users do
       primary_key :id, :auto_increment => true, :null => false
       String :name
       String :email
+      DateTime :created_at
+      DateTime :updated_at
     end
 
     create_table :scans do
@@ -35,6 +39,8 @@ class CreateStartingSchema < Sequel::Migration
     create_table :scanners do
       primary_key :id, :auto_increment => false, :null => false
       Fixnum :user_id
+      DateTime :created_at
+      DateTime :updated_at
     end
   end
 
