@@ -1,7 +1,7 @@
 /**
  * Reads ID via the RFID reader and sends them over ethernet to a web server.
  *
- * Copyright 2009 Alex Bird.
+ * Copyright 2009-2010 Alex Bird.
  */
 
 #include <Ethernet.h>
@@ -21,6 +21,10 @@
 #define ENABLE_READER()  digitalWrite(JAM_PIN, LOW);
 
 #define SCANNER_ID 1
+
+#define LOCATION_ROOM 10
+#define LOCATION_FRIDGE 11
+#define LOCATION_FREEZER 12
 
 #define SCAN_REQUEST      10
 #define INVENTORY_REQUEST 20
@@ -81,7 +85,9 @@ void send_scan_request()
         client.print(' ');
         client.print(SCANNER_ID);
         client.print(' ');
-        client.println(rfid);
+        client.print(rfid);
+        client.print(' ');
+        client.println(LOCATION_FRIDGE);
 
         // Send the request over serial for debugging.
         Serial.println();
