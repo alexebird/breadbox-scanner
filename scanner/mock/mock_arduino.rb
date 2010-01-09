@@ -3,7 +3,7 @@
 require 'socket'
 require 'gtk2'
 require '../../scan_server/lib/scan_server/request'
-require '../../scan_server/lib/scan_server/locations'
+require '../../db/lib/food_locations'
 
 class Scanner
   def initialize(textbuf)
@@ -13,7 +13,7 @@ class Scanner
   end
 
   def send_scan_request(rfid)
-    send_request(ScanServer::Request::SCAN, rfid, ScanServer::Locations::FRIDGE)
+    send_request(ScanServer::Request::SCAN, rfid, FoodLocations::FRIDGE)
   end
 
   def send_inventory_request

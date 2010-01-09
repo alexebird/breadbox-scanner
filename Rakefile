@@ -41,6 +41,9 @@ namespace :db do
     sh "sqlite3 #{db.call} .schema"
   end
 
+  desc "Migrate and populate the database."
+  task :refresh => [:migrate, :pop]
+
   require 'yaml'
   namespace :pop do
     desc "Populate the foods table."

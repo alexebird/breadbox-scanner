@@ -5,7 +5,7 @@ values:
   :major: :"dairy_&_egg"
   :minor: :dairy
   :room: 2
-  :fridge: 7
+  :fridge: 12
   :freezer: 30
   :rfid: "17007E24F3"
 --- !ruby/object:Food 
