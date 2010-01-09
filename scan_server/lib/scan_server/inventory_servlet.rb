@@ -15,7 +15,7 @@ module ScanServer
       response << '=' * 40
       response << "\n"
       user.foods.each do |food|
-        response << (pattern % [food.to_lcd_str, food.time_til_expires_for(scanner)])
+        response << (pattern % [food.to_lcd_str, "%s %s" % food.time_and_location_for(scanner)])
       end
       return response.chomp
     end
