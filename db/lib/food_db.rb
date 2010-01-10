@@ -30,9 +30,13 @@ module FoodDB
 
     def fixtures
       files = Dir.glob(@options[:fixtures_path] + '/*.yml')
+      fxts = {}
       files.each do |f|
-        puts f
+        fixture = f.match(/^\/.*\/(.+)\.yml$/)[1].to_sym
+        fxts[fixture] = f
       end
+
+      return fxts
     end
 
     private
@@ -54,4 +58,4 @@ end
 
 require File.join(FoodDB[:root], 'lib/database_config')
 FoodDB::DatabaseConfig.load_config
-FoodDB::DatabaseConfig.env = 'development'
+FoodDB::DatabaseConfig.env = 'development' unless FoodDB::DatabaseConfig.env

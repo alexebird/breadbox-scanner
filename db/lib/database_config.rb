@@ -36,6 +36,7 @@ module FoodDB
 
       def env=(newenv)
         ENV['DB_ENV'] = newenv if @databases.keys.include? newenv.to_sym
+        puts env
       end
 
       def sequel_string

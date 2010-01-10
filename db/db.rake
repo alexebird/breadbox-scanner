@@ -45,6 +45,7 @@ namespace :db do
 
     desc "Populate the foods table."
     task :foods do
+      FoodDB.connect
       FoodDB.load_models
       Food.delete
       Food.unrestrict_primary_key
@@ -58,6 +59,7 @@ namespace :db do
 
     desc "Populate the users table."
     task :users do
+      FoodDB.connect
       FoodDB.load_models
       User.delete
       User.unrestrict_primary_key
@@ -71,6 +73,7 @@ namespace :db do
 
     desc "Populate the scanners table."
     task :scanners do
+      FoodDB.connect
       FoodDB.load_models
       Scanner.delete
       Scanner.unrestrict_primary_key

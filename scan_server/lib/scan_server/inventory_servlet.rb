@@ -1,5 +1,5 @@
 require 'scan_server/servlet'
-require '../db/init'
+
 
 module ScanServer
   class InventoryServlet < Servlet

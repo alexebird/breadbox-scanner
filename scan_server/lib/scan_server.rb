@@ -1,5 +1,9 @@
 require 'logger'
 
+require '../db/init'
+FoodDB.connect
+FoodDB.load_models
+
 module ScanServer
 
   class << self
