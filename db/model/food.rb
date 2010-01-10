@@ -1,4 +1,4 @@
-require "#{DB_ROOT}/lib/food_locations"
+require FoodDB[:root] + '/lib/food_locations'
 
 # TODO Times for how long a food lasts are stored as days in the database.
 #
