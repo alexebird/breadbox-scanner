@@ -15,6 +15,8 @@ class CreateStartingSchema < Sequel::Migration
 
     create_table :users do
       primary_key :id, :auto_increment => true, :null => false
+      String :username
+      String :password
       String :name
       String :email
       DateTime :created_at

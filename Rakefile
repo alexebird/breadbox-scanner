@@ -10,7 +10,7 @@ namespace :run do
 
   desc "Run the web server."
   task :www do
-    sh "ruby -C www start.rb"
+    sh "ruby -C www init.rb"
   end
 
   desc "Run the mock arduino."

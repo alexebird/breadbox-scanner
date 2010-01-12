@@ -1,14 +1,35 @@
-# This file contains your application, it requires dependencies and necessary
-# parts of the application.
-#
-# It will be required from either `config.ru` or `start.rb`
-
 require 'rubygems'
-require 'ramaze'
+require 'sinatra/base'
+require 'digest/sha2'
+require 'haml'
+require 'sass'
+require '../db/init'
 
-# Make sure that Ramaze knows where you are
-Ramaze.options.roots = [__DIR__]
+class App < Sinatra::Base
+  enable :sessions, :run, :logging
+  FoodDB.connect
+  FoodDB.load_models
 
-# Initialize controllers and models
-require __DIR__('model/init')
-require __DIR__('controller/init')
+  get '/' do
+    haml :index
+  end
+
+  get '/user' do
+    @user = session[:user]
+    haml :"user/index"
+  end
+
+  post '/user/login' do
+    digest = Digest::SHA2.new << request[:password]
+    @user = User[:username => request[:username], :password => digest.to_s]
+
+    puts @user.inspect
+    if @user
+      session[:user] = @user
+      redirect '/user/index'
+    else
+      flash[:message] = "user not found."
+      redirect '/main/index'
+    end
+  end
+end

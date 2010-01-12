@@ -59,6 +59,7 @@ namespace :db do
 
     desc "Populate the users table."
     task :users do
+      require 'digest/sha2'
       FoodDB.connect
       FoodDB.load_models
       User.delete
@@ -66,7 +67,9 @@ namespace :db do
 
       File.open(FoodDB.fixtures[:users]) do |file|
         YAML.load_documents(file) do |u|
-          User.create(u.values)
+          u = User.new(u.values)
+          u.password = Digest::SHA2.new << u.values[:password]
+          u.save
         end
       end
     end

@@ -3,3 +3,12 @@ values:
   :id: 1
   :name: Bob Smith
   :email: bob@smith.com
+  :username: bob
+  :password: asdfasdf
+--- !ruby/object:User
+values:
+  :id: 2
+  :name: Alex Bird
+  :email: 'alexebird+food@gmail.com'
+  :username: abird
+  :password: asdfasdf
