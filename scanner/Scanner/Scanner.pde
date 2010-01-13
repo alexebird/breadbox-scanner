@@ -39,7 +39,7 @@ unsigned char security_passphrase_len;
 #define ID_SIZE    ((SCAN_SIZE) - 1)
 /*#define DISABLE_PERIOD 1000*/
 #define DISABLE_PIN 4
-#define BUTTON_PIN 5
+#define BUTTON_PIN 6
 
 #define SCAN_START_BYTE 0x0A
 #define SCAN_END_BYTE   0x0D
@@ -105,6 +105,7 @@ void responseCallback(char *data, int len)
         Serial.write(r->body[i]);
     }
     Serial.println();
+    ENABLE_READER();
 }
 
 // IP Address for the scan-server.
@@ -120,31 +121,17 @@ void setup()
     digitalWrite(DISABLE_PIN, LOW);
 
     Serial.begin(2400);
+    Serial.println("Starting...");
     // Initialize WiServer (we'll pass NULL for the page serving function since we don't need to serve web pages) 
     WiServer.init(NULL);
-    WiServer.enableVerboseMode(true);
+    /*WiServer.enableVerboseMode(true);*/
 
     // Set the scan request's callbacks.
     sendScan.setReturnFunc(responseCallback);
 }
 
-// Time (in millis) when the data should be retrieved 
-long updateTime = 0;
-
-void loop()
+void readButton()
 {
-    if (SCAN_AVAILABLE()) {
-        DISABLE_READER();
-
-        for (int i = 0; i < SCAN_SIZE; i++)
-            scan_bytes[i] = Serial.read();
-
-        if (VALID_SCAN(scan_bytes))
-            sendScan.submit();
-
-        ENABLE_READER();
-    }
-
     button_state = digitalRead(BUTTON_PIN);
 
     if (last_button_state == LOW && button_state == HIGH) {
@@ -164,10 +151,25 @@ void loop()
                 Serial.println("Switched to freezer.");
                 break;
         }
-        /*delay(50);*/
+        delay(50);
     }
 
     last_button_state = button_state;
+}
+
+void loop()
+{
+    if (SCAN_AVAILABLE()) {
+        for (int i = 0; i < SCAN_SIZE; i++)
+            scan_bytes[i] = Serial.read();
+
+        if (VALID_SCAN(scan_bytes)) {
+            DISABLE_READER();
+            sendScan.submit();
+        }
+    }
+
+    readButton();
 
     // Run WiServer
     WiServer.server_task();
