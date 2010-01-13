@@ -1,10 +1,14 @@
-%p Personal Food Inventory
+%p
+  Personal Food Inventory
+  %br
+  = flash[:message]
 #login
   %form(action="/user/login" method="post")
-    %input(type='textfield' name='username')
-    %input(type='password' name='password')
-    %input(type='submit' )
+    %input(type="textfield" name="username")
+    %input(type="password" name="password")
+    %input(type="submit")
+  = flash[:login_message]
 #signup
-  signup
+  %a(href="/signup") Sign up
 #about
-  about
+  %a(href="/about") About
