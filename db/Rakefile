@@ -92,3 +92,23 @@ namespace :db do
   desc "Populate all tables."
   task :pop => ['pop:foods', 'pop:users', 'pop:scanners']
 end
+
+namespace :test do
+  namespace :db do
+    task :setup do
+      ENV['DB_ENV'] = 'test'
+      Rake::Task['db:migrate'].invoke
+      Rake::Task['db:pop'].invoke
+    end
+
+    desc "Run all model tests."
+    task :model => :setup do
+      cd "db" do
+        sh "spec -r init --format specdoc -c spec/"
+      end
+    end
+  end
+
+  desc "Run all database tests."
+  task :db => ['db:setup', 'db:model']
+end

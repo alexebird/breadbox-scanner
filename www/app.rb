@@ -55,7 +55,7 @@ class App < Sinatra::Base
 
   post '/user/create' do
     if user_exists?(request[:name], request[:email])
-      flash[:user_create_msg] = "Username or email already has an account."
+      flash[:message] = "Username or email already has an account."
       redirect "/signup"
     elsif passwords_match?(request[:password], request[:password_confirm])
       @user = User.create(:username => request[:username],
@@ -65,7 +65,7 @@ class App < Sinatra::Base
       session[:user] = @user
       redirect "/user"
     else
-      flash[:user_create_msg] = "Password fields do not match"
+      flash[:message] = "Password fields do not match"
       redirect "/signup"
     end
   end
