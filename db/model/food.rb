@@ -18,7 +18,6 @@ class Food < Sequel::Model
     last_scan = last_scan_for(scanner)
     expires_in = nil 
     location_s = ''
-    debug last_scan.location
     case last_scan.location
       when FoodLocations::ROOM
         expires_in = self.room

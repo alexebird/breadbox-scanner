@@ -7,7 +7,7 @@ values:
   :room: 2
   :fridge: 12
   :freezer: 30
-  :rfid: "17007E24F3"
+  :rfid: "210082DC56"
 --- !ruby/object:Food 
 values:
   :id: 2
@@ -17,7 +17,7 @@ values:
   :room: 3
   :fridge: 35
   :freezer: 100
-  :rfid: "0415ED52CF"
+  :rfid: "210082BF70"
 --- !ruby/object:Food 
 values:
   :id: 3
@@ -27,4 +27,14 @@ values:
   :room: 1
   :fridge: 7
   :freezer:
-  :rfid: "36008B60F7"
+  :rfid: "25007280B5"
+--- !ruby/object:Food 
+values:
+  :id: 4
+  :name: leftovers_1
+  :major: :leftovers
+  :minor: 
+  :room: 1
+  :fridge: 3
+  :freezer: 20
+  :rfid: "25007132D3"

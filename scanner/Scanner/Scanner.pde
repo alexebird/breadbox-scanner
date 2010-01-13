@@ -33,17 +33,78 @@ unsigned char wireless_mode = WIRELESS_MODE_INFRA;
 unsigned char ssid_len;
 unsigned char security_passphrase_len;
 // End of wireless configuration parameters ----------------------------------------
+//
+//
+#define SCAN_SIZE  12
+#define ID_SIZE    ((SCAN_SIZE) - 1)
+/*#define DISABLE_PERIOD 1000*/
+#define DISABLE_PIN 4
+#define BUTTON_PIN 5
+
+#define SCAN_START_BYTE 0x0A
+#define SCAN_END_BYTE   0x0D
+
+#define VALID_SCAN(scan_bytes) scan_bytes[0] == SCAN_START_BYTE && scan_bytes[SCAN_SIZE - 1] == SCAN_END_BYTE
+#define SCAN_AVAILABLE() Serial.available() >= SCAN_SIZE 
+#define DISABLE_READER() digitalWrite(DISABLE_PIN, HIGH);
+#define ENABLE_READER()  digitalWrite(DISABLE_PIN, LOW);
+
+#define SCANNER_ID 1
+
+#define LOCATION_ROOM 10
+#define LOCATION_FRIDGE 11
+#define LOCATION_FREEZER 12
+
+#define SCAN_REQUEST      10
+#define INVENTORY_REQUEST 20
+#define INVENTORY_RESPONSE 20
+
+char scan_bytes[SCAN_SIZE];
+
+#define RESPONSE_TYPE_SIZE 2
+typedef struct __response {
+  char type[RESPONSE_TYPE_SIZE];
+  char body[150];
+} response;
+
+int last_button_state = LOW;
+int button_state;
+int location = LOCATION_FRIDGE;
 
 void scanRequestBodyCallback()
 {
-    WiServer.print("20 1");
+    scan_bytes[ID_SIZE] = '\0';
+
+    // Set id to the start of the acsii part of the RFID.
+    char *rfid = scan_bytes + 1;
+
+    // Send the request over the network.
+    WiServer.print(SCAN_REQUEST);
+    WiServer.print(' ');
+    WiServer.print(SCANNER_ID);
+    WiServer.print(' ');
+    WiServer.print(rfid);
+    WiServer.print(' ');
+    WiServer.print(location);
+
+    // Send the request over serial for debugging.
+    Serial.println();
+    Serial.print(SCAN_REQUEST);
+    Serial.print(' ');
+    Serial.print(SCANNER_ID);
+    Serial.print(' ');
+    Serial.print(rfid);
+    Serial.print(' ');
+    Serial.println(location);
 }
 
 void responseCallback(char *data, int len)
 {
+    response *r = (response *) data;
     for (int i = 0; i < len; i++) {
-        Serial.write(data[i]);
+        Serial.write(r->body[i]);
     }
+    Serial.println();
 }
 
 // IP Address for the scan-server.
@@ -54,7 +115,11 @@ POSTrequest sendScan(ip, 5000, "everest", "/", scanRequestBodyCallback);
 
 void setup()
 {
-    Serial.begin(57600);
+    pinMode(BUTTON_PIN, INPUT);
+    pinMode(DISABLE_PIN, OUTPUT);
+    digitalWrite(DISABLE_PIN, LOW);
+
+    Serial.begin(2400);
     // Initialize WiServer (we'll pass NULL for the page serving function since we don't need to serve web pages) 
     WiServer.init(NULL);
     WiServer.enableVerboseMode(true);
@@ -68,11 +133,41 @@ long updateTime = 0;
 
 void loop()
 {
-    if (millis() >= updateTime) {
-        sendScan.submit();
-        // 1 second updates
-        updateTime += 1000;
+    if (SCAN_AVAILABLE()) {
+        DISABLE_READER();
+
+        for (int i = 0; i < SCAN_SIZE; i++)
+            scan_bytes[i] = Serial.read();
+
+        if (VALID_SCAN(scan_bytes))
+            sendScan.submit();
+
+        ENABLE_READER();
     }
+
+    button_state = digitalRead(BUTTON_PIN);
+
+    if (last_button_state == LOW && button_state == HIGH) {
+        switch(location) {
+            case LOCATION_FREEZER:
+                location = LOCATION_ROOM;
+                Serial.println("Switched to room.");
+                break;
+
+            case LOCATION_ROOM:
+                location = LOCATION_FRIDGE;
+                Serial.println("Switched to fridge.");
+                break;
+
+            case LOCATION_FRIDGE:
+                location = LOCATION_FREEZER;
+                Serial.println("Switched to freezer.");
+                break;
+        }
+        /*delay(50);*/
+    }
+
+    last_button_state = button_state;
 
     // Run WiServer
     WiServer.server_task();
