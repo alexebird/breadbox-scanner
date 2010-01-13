@@ -27,23 +27,30 @@ module ScanServer
       return "<#{self.class}: #{vars.join ' '}>"
     end
 
-    public 
-    def self.create_request(socket)
-      req_str = socket.read_nonblock(1000000)
-      ScanServer.logger.debug req_str
-      if req_str && !req_str.empty?
-        opts = req_str.chomp.split(/\s/)
-        type = opts.first.to_i
-        case type
+    class << self
+      def create_request(socket)
+        req_str = socket.read_nonblock(1000000)
+        #ScanServer.logger.debug req_str
+
+        if req_str && !req_str.empty?
+          req_str = Request.strip_post_header(req_str)
+          opts = req_str.chomp.split(/\s/)
+          type = opts.first.to_i
+          case type
           when SCAN then return ScanRequest.new(socket, opts)
           when INVENTORY then return InventoryRequest.new(socket, opts)
-          else raise RuntimeError, "Bad request type."
+          else raise RuntimeError, "Unknown request type."
+          end
+        else
+          raise RuntimeError, "Bad request."
         end
-      else
-        raise RuntimeError, "Bad request."
+
+        return 
       end
 
-      return 
+      def strip_post_header(str)
+        str.sub(/^POST.+\r\n\r\n/m, '').sub(/\r\n/, '')
+      end
     end
   end
 end

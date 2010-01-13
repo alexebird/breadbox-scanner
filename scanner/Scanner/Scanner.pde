@@ -36,12 +36,14 @@ unsigned char security_passphrase_len;
 
 void scanRequestBodyCallback()
 {
-    WiServer.println("Hello world!");
+    WiServer.print("20 1");
 }
 
 void responseCallback(char *data, int len)
 {
-    Serial.println("response gotted.");
+    for (int i = 0; i < len; i++) {
+        Serial.write(data[i]);
+    }
 }
 
 // IP Address for the scan-server.
