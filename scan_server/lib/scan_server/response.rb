@@ -25,7 +25,7 @@ module ScanServer
 
     def send
       contents = "#@type#@body"
-      debug "\n" + contents
+      ScanServer.logger.debug "\n" + contents
       @socket.print(contents)
     end
   end

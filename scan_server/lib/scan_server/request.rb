@@ -29,7 +29,8 @@ module ScanServer
 
     public 
     def self.create_request(socket)
-      req_str = socket.gets 
+      req_str = socket.read_nonblock(1000000)
+      ScanServer.logger.debug req_str
       if req_str && !req_str.empty?
         opts = req_str.chomp.split(/\s/)
         type = opts.first.to_i

@@ -4,7 +4,6 @@ require 'scan_server/request'
 require 'scan_server/inventory_request'
 require 'scan_server/scan_request'
 require 'scan_server/servlet_dispatcher'
-require 'kernel'
 
 module ScanServer
   class Server
@@ -13,7 +12,7 @@ module ScanServer
       @port = port
       @dispatcher = ServletDispatcher.new
       @server = TCPServer.new(@host, @port)
-      info "Listening on #@host:#@port."
+      ScanServer.logger.info "Listening on #@host:#@port."
       init_traps
     end
 
@@ -27,24 +26,24 @@ module ScanServer
     end
 
     def shutdown
-      info "Shutting down."
+      ScanServer.logger.info "Shutting down."
       @server.close
       exit
     end
 
     def start 
-      info "Starting..."
+      ScanServer.logger.info "Starting..."
       loop do
         begin
           client = @server.accept
           request = Request.create_request(client)
-          info "Serving #{request}."
+          ScanServer.logger.info "Serving #{request}."
           @dispatcher.dispatch(request)
-          info "Request completed for #{request}."
+          ScanServer.logger.info "Request completed for #{request}."
         rescue IOError => e
-          error "TCPServer-related error: " + e.message
+          ScanServer.logger.error "TCPServer-related error: " + e.message
         rescue RuntimeError => e
-          error e.message
+          ScanServer.logger.error e.message
         ensure
           client.close unless !client or client.closed?
         end

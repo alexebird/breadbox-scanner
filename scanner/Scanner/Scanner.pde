@@ -36,7 +36,7 @@ unsigned char security_passphrase_len;
 
 void scanRequestBodyCallback()
 {
-    WiServer.print_P("Hello world!");
+    WiServer.println("Hello world!");
 }
 
 void responseCallback(char *data, int len)
