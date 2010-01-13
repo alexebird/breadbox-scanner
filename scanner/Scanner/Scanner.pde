@@ -1,178 +1,80 @@
-/**
- * Reads ID via the RFID reader and sends them over ethernet to a web server.
- *
- * Copyright 2009-2010 Alex Bird.
+/*
+ * A simple sketch that uses WiServer to get the hourly weather data from LAX and prints
+ * it via the Serial API
  */
 
-#include <Ethernet.h>
+#include <WiServer.h>
 
-#define SCAN_SIZE  12
-#define ID_SIZE    ((SCAN_SIZE) - 1)
-#define JAM_PERIOD 1000
-#define JAM_PIN    4
-#define BUTTON_PIN 2
+#define WIRELESS_MODE_INFRA	1
+#define WIRELESS_MODE_ADHOC	2
 
-#define SCAN_START_BYTE 0x0A
-#define SCAN_END_BYTE   0x0D
+// Wireless configuration parameters ----------------------------------------
+unsigned char local_ip[] = {192,168,1,66};	// IP address of WiShield
+unsigned char gateway_ip[] = {192,168,1,1};	// router or gateway IP address
+unsigned char subnet_mask[] = {255,255,255,0};	// subnet mask for the local network
+const prog_char ssid[] PROGMEM = {"dd-wrt"};		// max 32 bytes
 
-#define VALID_SCAN(scan_bytes) scan_bytes[0] == SCAN_START_BYTE && scan_bytes[SCAN_SIZE - 1] == SCAN_END_BYTE
-#define SCAN_AVAILABLE() Serial.available() >= SCAN_SIZE 
-#define DISABLE_READER() digitalWrite(JAM_PIN, HIGH);
-#define ENABLE_READER()  digitalWrite(JAM_PIN, LOW);
+unsigned char security_type = 3;	// 0 - open; 1 - WEP; 2 - WPA; 3 - WPA2
 
-#define SCANNER_ID 1
+// WPA/WPA2 passphrase
+const prog_char security_passphrase[] PROGMEM = {"boobtit1207"};	// max 64 characters
 
-#define LOCATION_ROOM 10
-#define LOCATION_FRIDGE 11
-#define LOCATION_FREEZER 12
+prog_uchar wep_keys[] PROGMEM = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d,0x0d,// Key 0
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,// Key 1
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,0x00,// Key 2
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00// Key 3
+};
 
-#define SCAN_REQUEST      10
-#define INVENTORY_REQUEST 20
-#define INVENTORY_RESPONSE 20
+// setup the wireless mode
+// infrastructure - connect to AP
+// adhoc - connect to another WiFi device
+unsigned char wireless_mode = WIRELESS_MODE_INFRA;
 
-#define RESPONSE_TYPE_SIZE 2
-typedef struct __response_header {
-  char type[RESPONSE_TYPE_SIZE + 1];
-} response_header;
+unsigned char ssid_len;
+unsigned char security_passphrase_len;
+// End of wireless configuration parameters ----------------------------------------
 
-char scan_bytes[SCAN_SIZE];
-/*byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };*/
-byte mac[] = { 0x00, 0x1E, 0xC0, 0x00, 0x14, 0x29 };
-byte ip[] = { 192, 168, 1, 66 };
-byte scan_server[] = { 192, 168, 1, 29 };
+void scanRequestBodyCallback()
+{
+    WiServer.print_P("Hello world!");
+}
 
-int last_button_state = LOW;
-int button_state;
-int location = LOCATION_FRIDGE;
+void responseCallback(char *data, int len)
+{
+    Serial.println("response gotted.");
+}
 
-Client client(scan_server, 5000);
+// IP Address for the scan-server.
+uint8 ip[] = {192,168,1,29};
+
+// A request that sends
+POSTrequest sendScan(ip, 5000, "everest", "/", scanRequestBodyCallback);
 
 void setup()
 {
-    pinMode(BUTTON_PIN, INPUT);
-    pinMode(JAM_PIN, OUTPUT);
-    digitalWrite(JAM_PIN, LOW);
+    Serial.begin(57600);
+    // Initialize WiServer (we'll pass NULL for the page serving function since we don't need to serve web pages) 
+    WiServer.init(NULL);
+    WiServer.enableVerboseMode(true);
 
-    Serial.begin(2400);
-    Ethernet.begin(mac, ip);
+    // Set the scan request's callbacks.
+    sendScan.setReturnFunc(responseCallback);
 }
+
+// Time (in millis) when the data should be retrieved 
+long updateTime = 0;
 
 void loop()
 {
-    if (SCAN_AVAILABLE()) {
-        DISABLE_READER();
-
-        for (int i = 0; i < SCAN_SIZE; i++)
-            scan_bytes[i] = Serial.read();
-
-        if (VALID_SCAN(scan_bytes))
-            send_scan_request();
-
-        ENABLE_READER();
+    if (millis() >= updateTime) {
+        sendScan.submit();
+        // 1 second updates
+        updateTime += 1000;
     }
 
-    button_state = digitalRead(BUTTON_PIN);
+    // Run WiServer
+    WiServer.server_task();
 
-    if (last_button_state == LOW && button_state == HIGH) {
-        switch(location) {
-            case LOCATION_FREEZER:
-                location = LOCATION_ROOM;
-                Serial.println("Switched to room.");
-                break;
-
-            case LOCATION_ROOM:
-                location = LOCATION_FRIDGE;
-                Serial.println("Switched to fridge.");
-                break;
-
-            case LOCATION_FRIDGE:
-                location = LOCATION_FREEZER;
-                Serial.println("Switched to freezer.");
-                break;
-        }
-        delay(50);
-    }
-
-    last_button_state = button_state;
-}
-
-void print_location()
-{
-    switch(location) {
-        case LOCATION_ROOM:
-            Serial.println("Currently adding to room.");
-            break;
-
-        case LOCATION_FRIDGE:
-            Serial.println("Currently adding to fridge.");
-            break;
-
-        case LOCATION_FREEZER:
-            Serial.println("Currently adding to freezer.");
-            break;
-    }
-}
-
-void send_scan_request()
-{
-    // Assumes constant length for RFID's.  User ID's are two unsigned bytes
-    // so the max value could be as large as 6 characters.
-    char request[18];
-
-    if (client.connect()) {
-        // Truncate the string holding the actual RFID so the SCAN_END_BYTE isn't included.
-        scan_bytes[ID_SIZE] = '\0';
-
-        // Set id to the start of the acsii part of the RFID.
-        char *rfid = scan_bytes + 1;
-
-        // Send the request over the network.
-        client.print(SCAN_REQUEST);
-        client.print(' ');
-        client.print(SCANNER_ID);
-        client.print(' ');
-        client.print(rfid);
-        client.print(' ');
-        client.println(location);
-
-        // Send the request over serial for debugging.
-        Serial.println();
-        Serial.print(SCAN_REQUEST);
-        Serial.print(' ');
-        Serial.print(SCANNER_ID);
-        Serial.print(' ');
-        Serial.print(rfid);
-        Serial.print(' ');
-        Serial.println(location);
-
-        response_header hdr;
-        
-        while (client.connected()) {
-            if (client.available() >= sizeof(response_header) - 1) {
-                hdr.type[0] = client.read();
-                hdr.type[1] = client.read();
-                hdr.type[2] = '\0';
-                Serial.print("Response: type=");
-                Serial.print(hdr.type);
-                break;
-            }
-        }
-
-        Serial.println(" body=");
-        while (client.connected()) {
-            if (client.available()) {
-                Serial.write(client.read());
-            }
-        }
-        Serial.println();
-
-        client.stop();
-        print_location();
-        // Mysteriously required to work properly.
-        Serial.flush();
-    }
-    else {
-        Serial.println("Couldn't connect via Ethernet.");
-    }
+    delay(10);
 }
 
