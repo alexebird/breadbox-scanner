@@ -2,8 +2,8 @@
 values:
   :id: 1
   :name: Bob Smith
-  :email: bob@smith.com
-  :username: bob
+  :email: 'bob@smith.com'
+  :username: bobs
   :password: asdfasdf
 --- !ruby/object:User
 values:

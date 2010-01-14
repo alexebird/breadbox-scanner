@@ -66,7 +66,7 @@ namespace :db do
       File.open(FoodDB.fixtures[:users]) do |file|
         YAML.load_documents(file) do |u|
           u = User.new(u.values)
-          u.password = Digest::SHA2.new << u.values[:password]
+          u.password = Digest::SHA2.new << (u.values[:password] + 'SdFAjLkZsDGf7905Q34hJKXasFbbbbbbb')
           u.save
         end
       end

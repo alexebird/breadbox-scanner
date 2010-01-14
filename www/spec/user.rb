@@ -12,7 +12,7 @@ describe UserController do
     last_response.status.should == 302
   end
 
-  should "login succuessfully" do
+  should "log known user in succuessfully" do
     post '/user/login', :username => "abird", :password => "asdfasdf"
     last_response.status.should == 302
     follow_redirect!
@@ -25,7 +25,7 @@ describe UserController do
     last_response.status.should == 302
     follow_redirect!
     last_response.status.should == 200
-    last_response.body.should =~ /.*Username or email already has an account.*/
+    last_response.body.should =~ /.*Problem:*/
   end
 
   should "fail to create a user when passwords do not match" do
@@ -34,7 +34,7 @@ describe UserController do
     last_response.status.should == 302
     follow_redirect!
     last_response.status.should == 200
-    last_response.body.should =~ /.*Password fields do not match.*/
+    last_response.body.should =~ /.*Problem: passwords do not match.*/
   end
 
   should "log user in and show user index after successful account creation" do

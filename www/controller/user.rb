@@ -1,5 +1,3 @@
-require 'digest/sha2'
-
 class UserController < Controller
   map '/user'
 
@@ -13,15 +11,16 @@ class UserController < Controller
   end
 
   def login
-    digest = Digest::SHA2.new << request[:password]
-    @user = User[:username => request[:username], :password => digest.to_s]
+    if request.post?
+      @user = User.find_login(request[:username], request[:password])
 
-    if @user
-      session[:user] = @user
-      redirect "/user"
-    else
-      flash[:login_message] = "User not found."
-      redirect "/"
+      if @user
+        session[:user] = @user
+        redirect "/user"
+      else
+        flash[:message] = "User not found."
+        redirect "/"
+      end
     end
   end
 
@@ -31,28 +30,27 @@ class UserController < Controller
   end
 
   def create
-    if user_exists?(request[:name], request[:email])
-      flash[:message] = "Username or email already has an account."
-      redirect "/signup"
-    elsif passwords_match?(request[:password], request[:password_confirm])
-      @user = User.create(:username => request[:username],
-                          :password => (Digest::SHA2.new << request[:password]).to_s,
-                          :name => request[:name],
-                          :email => request[:email])
-      session[:user] = @user
-      redirect "/user"
+    if password_confirmed? request[:password], request[:password_confirm]
+      @user = User.new(:username => request[:username],
+                       :password => request[:password],
+                       :name => request[:name],
+                       :email => request[:email])
+
+      if @user.save
+        session[:user] = @user
+        redirect "/user"
+      else
+        flash[:message] = "Problem: #{@user.errors.full_messages.first}."
+        redirect "/signup"
+      end
     else
-      flash[:message] = "Password fields do not match."
+      flash[:message] = "Problem: passwords do not match."
       redirect "/signup"
     end
   end
 
   private
-  def user_exists?(name, email)
-    return !User[:username => request[:username]].nil? || !User[:email => request[:email]].nil?
-  end
-
-  def passwords_match?(p1, p2)
+  def password_confirmed?(p1, p2)
     return p1 == p2
   end
 end
