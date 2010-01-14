@@ -28,22 +28,21 @@ describe UserController do
     last_response.body.should =~ /.*Username or email already has an account.*/
   end
 
-  #should "fail to create a user when passwords do not match" do
-    #post '/user/create', :name => "Dave Thomas", :username => "asdf",
-      #:password => "asdfasdf", :email => "asdf@asdf.com", :password_confirm => "asdf"
-    #last_response.status.should == 302
-    #follow_redirect!
-    #last_response.should be_ok
-    #last_response.body.should include("Password fields do not match")
-  #end
+  should "fail to create a user when passwords do not match" do
+    post '/user/create', :name => "Dave Thomas", :username => "asdf",
+      :password => "asdfasdf", :email => "asdf@asdf.com", :password_confirm => "asdf"
+    last_response.status.should == 302
+    follow_redirect!
+    last_response.status.should == 200
+    last_response.body.should =~ /.*Password fields do not match.*/
+  end
 
-  #should "log user in and show user index after successful account creation" do
-    #post '/user/create', :name => "Alvin T Smiley", :username => "asmlyee",
-      #:password => "asdfasdf", :email => "a@tomtom.com", :password_confirm => "asdfasdf"
-    #last_response.status.should == 302
-    #last_response.headers['location'].should == '/user'
-    #follow_redirect!
-    #last_response.should be_ok
-    #last_response.body.should include("Alvin")
-  #end
+  should "log user in and show user index after successful account creation" do
+    post '/user/create', :name => "Alvin T Smiley", :username => "asmlyee",
+      :password => "asdfasdf", :email => "a@tomtom.com", :password_confirm => "asdfasdf"
+    last_response.status.should == 302
+    follow_redirect!
+    last_response.status.should == 200
+    last_response.body.should =~ /.*Welcome, Alvin T Smiley\..*/
+  end
 end
