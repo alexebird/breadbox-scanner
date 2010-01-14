@@ -12,3 +12,10 @@ values:
   :email: 'alexebird+food@gmail.com'
   :username: abird
   :password: asdfasdf
+--- !ruby/object:User
+values:
+  :id: 3
+  :name: Dave Thomas
+  :email: 'dave@wendys.com'
+  :username: dtom
+  :password: asdfasdf

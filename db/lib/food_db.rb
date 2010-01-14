@@ -3,11 +3,10 @@ require 'sequel'
 require 'logger'
 
 module FoodDB
-  @options = {}
+  @options = Hash.new
   @options[:root] = ENV['DB_ROOT']
   @options[:fixtures_path] = File.join(@options[:root], 'fixtures')
   @options[:migations_path] = File.join(@options[:root], 'migrations')
-  @options[:logger] = Logger.new(STDOUT)
 
   class << self
     def [](option)
@@ -44,14 +43,22 @@ module FoodDB
       require File.join(FoodDB[:root], 'model', name)
     end
 
-    public
     def load_models
       %w(food user scan scanner).each {|model| load_model model }
     end
 
-    def connect
-      FoodDB[:db] = Sequel.connect DatabaseConfig.sequel_string, :loggers => FoodDB[:logger]
-      FoodDB[:logger].info "Using #{FoodDB::DatabaseConfig.env} as database."
+    public
+    def connect(options={})
+      if options
+        if options[:log_to_console]
+          logger = Logger.new(STDOUT)
+        end
+      end
+
+      FoodDB[:db] = Sequel.connect DatabaseConfig.sequel_string
+      FoodDB[:db].loggers << logger if logger
+      FoodDB[:db].log_info "Using #{FoodDB::DatabaseConfig.env} as database."
+      load_models
     end
   end
 end

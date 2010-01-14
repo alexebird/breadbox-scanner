@@ -1,9 +1,9 @@
 require 'rubygems'
 require 'rake'
 
-import 'db/Rakefile'
-import 'www/Rakefile'
-import 'scan_server/Rakefile'
+import 'db/db.rake'
+import 'www/www.rake'
+import 'scan_server/scan_server.rake'
 
 namespace :run do
   desc "Run the server which listens for RFID scans."
