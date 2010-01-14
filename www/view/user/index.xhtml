@@ -1,1 +1,15 @@
 summary
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Expires in</th>
+        <th>Location</th>
+    </tr>
+    <?r @user.foods.each do |food| ?>
+    <tr>
+        <td>#{food.name}</td>
+        <td>#{food.expires}</td>
+        <td>#{food.location}</td>
+    </tr>
+    <?r end ?>
+</table>

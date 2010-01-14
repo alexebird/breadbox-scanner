@@ -7,6 +7,8 @@ class Food < Sequel::Model
   one_to_many :scans
   many_to_many :users
 
+  attr_accessor :expires, :location
+
   def last_scan_for(scanner)
     self.scans_dataset.filter(:scanner_id => scanner.id).reverse_order(:timestamp).limit(1).first
   end
@@ -32,7 +34,7 @@ class Food < Sequel::Model
     end
     return "never", location_s unless expires_in
     expires_in *= 24 * 60 * 60
-    return ScanServer.time_diff_in_words(Time.now, last_scan.timestamp + expires_in), location_s
+    return FoodHelpers::time_diff_in_words(Time.now, last_scan.timestamp + expires_in), location_s
   end
 
   def to_lcd_str

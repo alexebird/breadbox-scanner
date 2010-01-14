@@ -1,6 +1,12 @@
 :development:
-  :adapter:  sqlite
-  :database: development.db
+  :adapter:  mysql
+  :host:     everest
+  :username: food_user
+  :password: fud_usr
+  :database: food_dev
+
+  #:adapter:  sqlite
+  #:database: development.db
 
 :test:
   :adapter:  mysql

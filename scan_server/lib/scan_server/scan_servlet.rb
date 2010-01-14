@@ -9,7 +9,7 @@ module ScanServer
       if food.nil?
         ScanServer.logger.info "RFID unaccounted for: #{request.rfid}"
       else
-        scan = Scan.create(:food => food, :scanner => scanner, :location => request.location)
+        scan = Scan.create(:food => food, :scanner => scanner, :location => request.location, :timestamp => Time.now)
         scanner.add_scan(scan)
         food.add_scan(scan)
         user = scanner.user

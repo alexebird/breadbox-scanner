@@ -41,53 +41,53 @@ namespace :db do
   desc "Migrate and populate the database."
   task :refresh => [:migrate, :pop]
 
-  namespace :pop do
+  desc "Populate the database from fixtures."
+  task :pop do
+    FoodDB.connect :log_to_console => true
 
-    desc "Populate the foods table."
-    task :foods do
-      FoodDB.connect :log_to_console => true
-      Food.delete
-      Food.unrestrict_primary_key
-
-      File.open(FoodDB.fixtures[:foods]) do |file|
-        YAML.load_documents(file) do |f|
-          Food.create(f.values)
-        end
+    Food.delete
+    Food.unrestrict_primary_key
+    File.open(FoodDB.fixtures[:foods]) do |file|
+      YAML.load_documents(file) do |f|
+        Food.create(f.values)
       end
     end
 
-    desc "Populate the users table."
-    task :users do
-      require 'digest/sha2'
-      FoodDB.connect :log_to_console => true
-      User.delete
-      User.unrestrict_primary_key
-
-      File.open(FoodDB.fixtures[:users]) do |file|
-        YAML.load_documents(file) do |u|
-          u = User.new(u.values)
-          u.password = Digest::SHA2.new << (u.values[:password] + 'SdFAjLkZsDGf7905Q34hJKXasFbbbbbbb')
-          u.save
-        end
+    User.delete
+    User.unrestrict_primary_key
+    File.open(FoodDB.fixtures[:users]) do |file|
+      YAML.load_documents(file) do |u|
+        User.create(u.values)
       end
     end
 
-    desc "Populate the scanners table."
-    task :scanners do
-      FoodDB.connect :log_to_console => true
-      Scanner.delete
-      Scanner.unrestrict_primary_key
-
-      File.open(FoodDB.fixtures[:scanners]) do |file|
-        YAML.load_documents(file) do |s|
-          Scanner.create(s.values)
-        end
+    Scanner.delete
+    Scanner.unrestrict_primary_key
+    File.open(FoodDB.fixtures[:scanners]) do |file|
+      YAML.load_documents(file) do |s|
+        Scanner.create(s.values)
       end
+    end
+
+    Scan.delete
+    Scan.unrestrict_primary_key
+    File.open(FoodDB.fixtures[:scans]) do |file|
+      YAML.load_documents(file) do |s|
+        Scan.create(s.values)
+      end
+    end
+
+    scans = Scan.all
+    scanner = Scanner.first
+    user = scanner.user
+    user.add_scanner(scanner)
+    foods = Food.all
+    scans.each do |scan|
+      scanner.add_scan(scan)
+      user.scan_food(scan.food)
+      scan.food.add_scan(scan)
     end
   end
-
-  desc "Populate all tables."
-  task :pop => ['pop:foods', 'pop:users', 'pop:scanners']
 end
 
 namespace :test do

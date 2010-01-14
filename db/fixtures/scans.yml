@@ -1,0 +1,35 @@
+--- !ruby/object:Scan
+values:
+  :id: 1
+  :food_id: 1
+  :scanner_id: 1
+  :location: 11
+  :timestamp: 2010-01-04 14:27:28.473177 -06:00
+--- !ruby/object:Scan
+values:
+  :id: 2
+  :food_id: 3
+  :scanner_id: 1
+  :location: 10
+  :timestamp: 2010-01-05 18:16:49.472798 -06:00
+--- !ruby/object:Scan
+values:
+  :id: 3
+  :food_id: 2
+  :scanner_id: 1
+  :location: 11
+  :timestamp: 2010-01-08 08:10:02.472798 -06:00
+--- !ruby/object:Scan
+values:
+  :id: 4
+  :food_id: 1
+  :scanner_id: 1
+  :location: 11
+  :timestamp: 2010-01-08 7:31:17.473111 -06:00
+--- !ruby/object:Scan
+values:
+  :id: 5
+  :food_id: 4
+  :scanner_id: 1
+  :location: 12
+  :timestamp: 2010-01-13 17:38:19.473254 -06:00

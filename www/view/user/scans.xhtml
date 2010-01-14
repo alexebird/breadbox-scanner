@@ -1,1 +1,15 @@
 scans
+<table>
+    <tr>
+        <th>Food</th>
+        <th>Time</th>
+        <th>Location</th>
+    </tr>
+    <?r @scans.each do |scan| ?>
+    <tr>
+        <td>#{scan.food.name}</td>
+        <td>#{scan.timestamp}</td>
+        <td>#{scan.location}</td>
+    </tr>
+    <?r end ?>
+</table>

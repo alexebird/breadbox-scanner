@@ -18,3 +18,10 @@ namespace :test do
     end
   end
 end
+
+namespace :run do
+  desc "Run the server which listens for RFID scans."
+  task :server do
+    sh "ruby -C scan_server init.rb"
+  end
+end

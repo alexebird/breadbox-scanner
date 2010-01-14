@@ -6,11 +6,6 @@ import 'www/www.rake'
 import 'scan_server/scan_server.rake'
 
 namespace :run do
-  desc "Run the server which listens for RFID scans."
-  task :server do
-    sh "ruby -C scan_server init.rb"
-  end
-
   desc "Run the mock arduino."
   task :scanner do
     sh "ruby -C scanner/mock mock_arduino.rb"

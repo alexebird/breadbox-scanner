@@ -5,6 +5,12 @@ class UserController < Controller
   def index
     if session[:user]
       @user = session[:user]
+      @user.refresh
+      scanner = @user.scanners.first
+      @user.foods.each do |food|
+        time, location = food.time_and_location_for(scanner)
+        food.set(:expires => time, :location => location)
+      end
     else
       flash[:message] = "Must be logged into view this page."
       redirect "/"
@@ -53,6 +59,7 @@ class UserController < Controller
   def inventory
     if session[:user]
       @user = session[:user]
+      @user.refresh
     else
       flash[:message] = "Must be logged into view this page."
       redirect "/"
@@ -62,6 +69,11 @@ class UserController < Controller
   def scans
     if session[:user]
       @user = session[:user]
+      @user.refresh
+      @scans = []
+      @user.scanners.each do |scanner|
+        scanner.scans.each {|scan| @scans << scan}
+      end
     else
       flash[:message] = "Must be logged into view this page."
       redirect "/"
