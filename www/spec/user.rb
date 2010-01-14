@@ -1,6 +1,8 @@
 require 'ramaze'
 require 'ramaze/spec/bacon'
 
+Bacon.summary_at_exit
+
 require __DIR__('../app')
 
 describe UserController do

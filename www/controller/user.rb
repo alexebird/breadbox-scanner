@@ -1,5 +1,6 @@
 class UserController < Controller
   map '/user'
+  layout :user
 
   def index
     if session[:user]
@@ -46,6 +47,24 @@ class UserController < Controller
     else
       flash[:message] = "Problem: passwords do not match."
       redirect "/signup"
+    end
+  end
+
+  def inventory
+    if session[:user]
+      @user = session[:user]
+    else
+      flash[:message] = "Must be logged into view this page."
+      redirect "/"
+    end
+  end
+
+  def scans
+    if session[:user]
+      @user = session[:user]
+    else
+      flash[:message] = "Must be logged into view this page."
+      redirect "/"
     end
   end
 

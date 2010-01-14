@@ -3,8 +3,11 @@
 
 class Controller < Ramaze::Controller
   layout :default
-  helper :xhtml
+  helper :blue_form
   helper :flash
+  helper :xhtml
+  helper :link
+  helper :render
   engine :Etanni
 end
 

@@ -4,11 +4,12 @@
     #{flash[:message]}
 </p>
 <div id="login">
-    <form action="/user/login" method="post">
-        <input type="textfield" name="username" />
-        <input type="textfield" name="password" />
-        <input type="submit" />
-    </form>
+    #{ form(:action => "/user/login", :method => :post) do |f|
+       f.text "Username", :username
+       f.password "Password", :password
+       f.submit
+    end }
+
 </div>
 <div id="signup">
   <a href="/signup">Sign up</a>
