@@ -1,0 +1,19 @@
+<p>
+    Personal Food Inventory
+    <br />
+    #{flash[:message]}
+</p>
+<div id="login">
+    <form action="/user/login" method="post">
+        <input type="textfield" name="username" />
+        <input type="textfield" name="password" />
+        <input type="submit" />
+    </form>
+    #{flash[:login_message]}
+</div>
+<div id="signup">
+  <a href="/signup">Sign up</a>
+</div>
+<div id="about">
+  <a href="/about">About</a>
+</div>

@@ -1,3 +1,3 @@
-#require '../db/init'
+require '../db/init'
 
-#FoodDB.connect
+FoodDB.connect

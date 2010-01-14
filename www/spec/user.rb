@@ -25,8 +25,7 @@ describe UserController do
     last_response.status.should == 302
     follow_redirect!
     last_response.status.should == 200
-    puts last_response.body
-    #last_response.body.should =~ /.*Username or email already has an account.*/
+    last_response.body.should =~ /.*Username or email already has an account.*/
   end
 
   #should "fail to create a user when passwords do not match" do

@@ -1,0 +1,27 @@
+Signup
+<div id='usercreatemsg'>
+    #{flash[:message]}
+</div>
+<form action='/user/create' method='post'>
+  <p>
+    Name
+    <input name='name' type='textfield' />
+  </p>
+  <p>
+    Username
+    <input name='username' type='textfield' />
+  </p>
+  <p>
+    Email
+    <input name='email' type='textfield' />
+  </p>
+  <p>
+    Password
+    <input name='password' type='password' />
+  </p>
+  <p>
+    Confirm Password
+    <input name='password_confirm' type='password' />
+  </p>
+  <input type='submit' />
+</form>
