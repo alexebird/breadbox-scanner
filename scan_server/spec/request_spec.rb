@@ -1,4 +1,4 @@
-require 'lib/scan_server/request'
+require File.join(File.dirname(__FILE__), '../lib/scan_server/request')
 
 describe ScanServer::Request do
   it "should strip http post header from request" do

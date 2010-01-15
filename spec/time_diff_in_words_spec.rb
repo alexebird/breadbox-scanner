@@ -1,6 +1,6 @@
 require 'food_helpers'
 
-describe FoodHelpers do
+#describe FoodHelpers do
   describe "time_diff_in_words" do
     before(:all) do
       @time = Time.now + 100
@@ -79,4 +79,4 @@ describe FoodHelpers do
       FoodHelpers.time_diff_in_words(@time - (60 * 60 * 24 * 913), @time).should == "3 years"
     end
   end
-end
+#end

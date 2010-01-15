@@ -2,8 +2,9 @@ require 'rubygems'
 require 'rake'
 require 'yaml'
 
-RAKE_DB_ROOT = File.expand_path(File.dirname(__FILE__))
-require File.join(RAKE_DB_ROOT, 'init')
+DB_ROOT = File.expand_path(File.dirname(__FILE__))
+#require File.join(DB_ROOT, '../lib/food_spec_task')
+require File.join(DB_ROOT, 'init')
 
 desc "Set the database enviroment. env can be dev,test,prod."
 task :setenv, [:env] do |t, args|
@@ -29,7 +30,7 @@ namespace :setenv do
 end
 
 namespace :db do
-  task :beforetests => ['setenv:test', 'pop']
+  task :beforetest => ['setenv:test', 'pop']
 
   desc "If mig is not specified, task will run the most recent migration.\n" +
        "Otherwise run the migration specified by mig."
@@ -56,7 +57,7 @@ namespace :db do
   
   desc "Run the Sequel console."
   task :console do
-    sh "irb -r rubygems -r sequel -r #{File.join(RAKE_DB_ROOT, 'init')} -r #{File.join(RAKE_DB_ROOT, 'irb-init.rb')}"
+    sh "irb -r rubygems -r sequel -r #{File.join(DB_ROOT, 'init')} -r #{File.join(DB_ROOT, 'irb-init.rb')}"
   end
 
   desc "Run the mysql console."
@@ -80,8 +81,7 @@ namespace :db do
   desc "Populate the database from fixtures."
   task :pop, [:env] do |t, args|
     Rake::Task["setenv"].invoke args.env
-
-    FoodDB.connect :log_to_console => true
+    FoodDB.connect :log_to_console => !FoodDB::DatabaseConfig.test?
 
     Food.delete
     Food.unrestrict_primary_key
@@ -131,11 +131,8 @@ end
 namespace :test do
   namespace :db do
     desc "Run all model tests."
-    task :model do
-      Rake::Task['db:pop'].invoke 'test'
-      cd "db" do
-        sh "spec -r spec/spec_helper --format specdoc -c spec/"
-      end
+    FoodHelpers::FoodSpecTask.new(DB_ROOT, :model => ['db:beforetest']) do |t|
+      t.spec_files = "spec/"
     end
   end
 

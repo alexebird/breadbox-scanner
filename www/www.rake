@@ -1,22 +1,19 @@
 require 'rubygems'
 require 'rake'
+require 'spec'
 
-WWW_RAKE_ROOT = File.expand_path(File.dirname(__FILE__))
+WWW_ROOT = File.expand_path(File.dirname(__FILE__))
 
 namespace :test do
   namespace :www do
-    desc "Test UserController."
-    task :user => ['db:beforetests'] do
-      cd WWW_RAKE_ROOT do
-        sh "bacon spec/user.rb"
-      end
+    desc "Test MainController."
+    FoodHelpers::FoodSpecTask.new(WWW_ROOT, :main => ['db:beforetest']) do |t|
+      t.spec_files = "spec/main_spec.rb"
     end
 
-    desc "Test MainController."
-    task :main => ['db:beforetests'] do
-      cd WWW_RAKE_ROOT do
-        sh "bacon spec/main.rb"
-      end
+    desc "Test UserController."
+    FoodHelpers::FoodSpecTask.new(WWW_ROOT, :user => ['db:beforetest']) do |t|
+      t.spec_files = "spec/user_spec.rb"
     end
   end
 
@@ -28,6 +25,6 @@ namespace :run do
 
   desc "Run the web server."
   task :www do
-    sh "ruby -C #{WWW_RAKE_ROOT} start.rb"
+    sh "ruby -C #{WWW_ROOT} start.rb"
   end
 end
