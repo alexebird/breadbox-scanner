@@ -5,16 +5,15 @@ WWW_RAKE_ROOT = File.expand_path(File.dirname(__FILE__))
 
 namespace :test do
   namespace :www do
-
     desc "Test UserController."
-    task :user => ['test:db:setup'] do
+    task :user => ['db:beforetests'] do
       cd WWW_RAKE_ROOT do
         sh "bacon spec/user.rb"
       end
     end
 
     desc "Test MainController."
-    task :main => ['test:db:setup'] do
+    task :main => ['db:beforetests'] do
       cd WWW_RAKE_ROOT do
         sh "bacon spec/main.rb"
       end

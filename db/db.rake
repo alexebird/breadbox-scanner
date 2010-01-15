@@ -5,34 +5,42 @@ require 'yaml'
 RAKE_DB_ROOT = File.expand_path(File.dirname(__FILE__))
 require File.join(RAKE_DB_ROOT, 'init')
 
-task 'prod:setenv' do
-  FoodDB::DatabaseConfig.env = 'production'
+desc "Set the database enviroment. env can be dev,test,prod."
+task :setenv, [:env] do |t, args|
+  if args.env && %w(dev test prod).include?(args.env)
+    FoodDB::DatabaseConfig.env = case args.env
+                                   when 'prod' then 'production'
+                                   when 'test' then 'test'
+                                   when 'dev' then 'development'
+                                 end
+  end
 end
 
-task 'test:setenv' do
-  FoodDB::DatabaseConfig.env = 'test'
-end
-
-task 'dev:setenv' do
-  FoodDB::DatabaseConfig.env = 'development'
+namespace :setenv do
+  task :dev do
+    Rake::Task["setenv"].invoke 'dev'
+  end
+  task :test do
+    Rake::Task["setenv"].invoke 'test'
+  end
+  task :prod do
+    Rake::Task["setenv"].invoke 'prod'
+  end
 end
 
 namespace :db do
+  task :beforetests => ['setenv:test', 'pop']
 
   desc "If mig is not specified, task will run the most recent migration.\n" +
        "Otherwise run the migration specified by mig."
   task :migrate, [:env, :mig] => [:create_sqlite] do |t, args|
-    if args.env && %w(dev test prod).include?(args.env)
-      Rake::Task[args.env + ':setenv'].invoke
-    end
+    Rake::Task["setenv"].invoke args.env
     sh "sequel -m #{FoodDB[:migations_path]} -M #{FoodDB.migration(args.mig)} #{FoodDB::DatabaseConfig.sequel_string}"
   end
 
   desc "Reload the latest migration."
   task :remigrate, [:env] => [:create_sqlite] do |t, args|
-    if args.env && %w(dev test prod).include?(args.env)
-      Rake::Task[args.env + ':setenv'].invoke
-    end
+    Rake::Task["setenv"].invoke args.env
     mig = FoodDB.migration(nil)
     if mig > 1
       sh "sequel -m #{FoodDB[:migations_path]} -M #{mig - 1} #{FoodDB::DatabaseConfig.sequel_string}"
@@ -70,7 +78,9 @@ namespace :db do
   task :refresh => [:migrate, :pop]
 
   desc "Populate the database from fixtures."
-  task :pop do
+  task :pop, [:env] do |t, args|
+    Rake::Task["setenv"].invoke args.env
+
     FoodDB.connect :log_to_console => true
 
     Food.delete
@@ -120,13 +130,9 @@ end
 
 namespace :test do
   namespace :db do
-    task :setup do
-      Rake::Task['test:setenv'].invoke
-      Rake::Task['db:pop'].invoke
-    end
-
     desc "Run all model tests."
-    task :model => :setup do
+    task :model do
+      Rake::Task['db:pop'].invoke 'test'
       cd "db" do
         sh "spec -r spec/spec_helper --format specdoc -c spec/"
       end
@@ -134,5 +140,5 @@ namespace :test do
   end
 
   desc "Run all database tests."
-  task :db => ['db:setup', 'db:model']
+  task :db => ['db:model']
 end

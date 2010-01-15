@@ -7,7 +7,7 @@ class UserController < Controller
       @user = session[:user]
       @user.refresh
       scanner = @user.scanners.first
-      @user.foods.each do |food|
+      @user.inventory.each do |food|
         time, location = food.time_and_location_for(scanner)
         food.set(:expires => time, :location => location)
       end

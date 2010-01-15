@@ -4,7 +4,6 @@ require '../db/init'
 FoodDB.connect
 
 module ScanServer
-
   class << self
     @@logger = Logger.new(STDOUT)
     @@logger.level = Logger::DEBUG

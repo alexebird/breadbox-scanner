@@ -19,11 +19,18 @@ namespace :doc do
   end
 end
 
+namespace :test do
+  desc "Run tests on project top level stuff."
+  task :toplevel do
+    sh "spec --format specdoc -c spec/"
+  end
+end
+
 desc "Generate all rdocs."
 task :doc => ['doc:readme']
 
 desc "Run all tests."
-task :test => ['test:scanserver', 'test:db', 'test:www']
+task :test => ['test:scanserver', 'test:db', 'test:www', 'test:toplevel']
 
 desc "Show all TODO, XXX, or FIXME reminders."
 task :todo do
