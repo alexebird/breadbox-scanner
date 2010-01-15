@@ -30,13 +30,16 @@ module FoodDB
         end
       end
 
+      def mysql?
+        curr_db[:adapter] == 'mysql'
+      end
+
       def env
         ENV['DB_ENV']
       end
 
       def env=(newenv)
         ENV['DB_ENV'] = newenv if @databases.keys.include? newenv.to_sym
-        puts env
       end
 
       def sequel_string
@@ -49,6 +52,11 @@ module FoodDB
 
       def load_config
         @databases = YAML::load(File.open(File.join(FoodDB[:root], 'config/database.yml')))
+      end
+
+      def mysql_args
+        return unless mysql?
+        [curr_db[:username], curr_db[:password], curr_db[:host], curr_db[:database]]
       end
 
       private

@@ -1,14 +1,24 @@
-require FoodDB[:root] + '/lib/food_locations'
+require File.join(FoodDB[:root], 'lib/food_locations')
 
+# Represents a food which can be stored around the kitchen.  Foods are kept in a user's
+# inventory.
+#
+#--
 # TODO Times for how long a food lasts are stored as days in the database.
+#++
 #
 class Food < Sequel::Model
-  Food.plugin :timestamps
-  one_to_many :scans
-  many_to_many :users
-
+  plugin :timestamps
   attr_accessor :expires, :location
 
+  one_to_many :scans
+  many_to_many :users
+  many_to_one :created_by, :class => 'User'
+
+  # Returns the last Scan created for this Food which was made
+  # by the specified scanner.
+  # scanner:: The scanner to get the last Scan for.
+  #
   def last_scan_for(scanner)
     self.scans_dataset.filter(:scanner_id => scanner.id).reverse_order(:timestamp).limit(1).first
   end

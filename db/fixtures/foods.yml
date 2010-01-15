@@ -8,6 +8,7 @@ values:
   :fridge: 12
   :freezer: 30
   :rfid: "210082DC56"
+  :created_by_id:
 --- !ruby/object:Food 
 values:
   :id: 2
@@ -18,6 +19,7 @@ values:
   :fridge: 35
   :freezer: 100
   :rfid: "210082BF70"
+  :created_by_id:
 --- !ruby/object:Food 
 values:
   :id: 3
@@ -28,6 +30,7 @@ values:
   :fridge: 7
   :freezer:
   :rfid: "25007280B5"
+  :created_by_id:
 --- !ruby/object:Food 
 values:
   :id: 4
@@ -38,3 +41,4 @@ values:
   :fridge: 3
   :freezer: 20
   :rfid: "25007132D3"
+  :created_by_id: 1

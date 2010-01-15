@@ -4,12 +4,12 @@ class User < Sequel::Model
   PASSWORD_SALT = 'SdFAjLkZsDGf7905Q34hJKXasFbbbbbbb'
 
   User.raise_on_save_failure = false
-
   plugin :timestamps
   plugin :validation_helpers
 
   one_to_many :scanners
-  many_to_many :foods
+  many_to_many :inventory, :class => 'Food', :right_key => :food_id
+  one_to_many :foods_created, :class => 'Food', :key => :created_by_id
 
   def after_validation
     digest_password
@@ -24,10 +24,10 @@ class User < Sequel::Model
   end
 
   def scan_food(food)
-    if foods.include? food
-      remove_food(food)
+    if inventory.include? food
+      remove_inventory(food)
     else
-      add_food(food)
+      add_inventory(food)
     end
   end
 

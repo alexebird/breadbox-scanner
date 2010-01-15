@@ -24,3 +24,8 @@ task :doc => ['doc:readme']
 
 desc "Run all tests."
 task :test => ['test:scanserver', 'test:db', 'test:www']
+
+desc "Show all TODO, XXX, or FIXME reminders."
+task :todo do
+  sh "egrep -n 'TODO|XXX|FIXME' * */* */*/* */*/*/* */*/*/*/*"
+end

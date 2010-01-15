@@ -9,6 +9,7 @@ class CreateStartingSchema < Sequel::Migration
       Fixnum :fridge
       Fixnum :freezer
       String :rfid, :size => 10, :fixed => true
+      Fixnum :created_by_id, :default => nil
       DateTime :created_at
       DateTime :updated_at
     end
