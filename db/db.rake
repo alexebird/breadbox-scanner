@@ -3,7 +3,6 @@ require 'rake'
 require 'yaml'
 
 DB_ROOT = File.expand_path(File.dirname(__FILE__))
-#require File.join(DB_ROOT, '../lib/food_spec_task')
 require File.join(DB_ROOT, 'init')
 
 desc "Set the database enviroment. env can be dev,test,prod."

@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'rake'
-require 'spec'
 
 WWW_ROOT = File.expand_path(File.dirname(__FILE__))
 

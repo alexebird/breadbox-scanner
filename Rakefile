@@ -37,5 +37,5 @@ task :test => ['test:scanserver', 'test:db', 'test:www', 'test:toplevel']
 
 desc "Show all TODO, XXX, or FIXME reminders."
 task :todo do
-  sh "egrep -n 'TODO|XXX|FIXME' * */* */*/* */*/*/* */*/*/*/*"
+  system "egrep -n 'TODO|XXX|FIXME' * */* */*/* */*/*/* */*/*/*/*"
 end
