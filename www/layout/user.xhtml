@@ -15,7 +15,8 @@
     <body>
         <div id="content">
             Welcome, #{@user.name}.
-            <a href="/user/logout">Logout</a>
+            #{UserController.a('Edit', :edit)}
+            #{UserController.a('Logout', :logout)}
 
             #{render_partial(:menu)}
             #@content

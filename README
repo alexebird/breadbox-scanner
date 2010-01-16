@@ -3,6 +3,9 @@ Author:: Alex Bird
 Copyright:: Alex Bird 2009-2010.
 
 === Main goal: quick and easy to use, minimal manual data entry
+Other goals:
+* Lots of tests
+* Rdocs
 
 === General Ideas
 iphone & android

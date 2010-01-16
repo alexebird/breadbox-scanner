@@ -1,11 +1,9 @@
 class UserController < Controller
-  map '/user'
   layout :user
 
   def index
     if session[:user]
-      @user = session[:user]
-      @user.refresh
+      @user = session[:user].refresh
       scanner = @user.scanners.first
       @user.inventory.each do |food|
         time, location = food.time_and_location_for(scanner)
@@ -18,16 +16,14 @@ class UserController < Controller
   end
 
   def login
-    if request.post?
-      @user = User.find_login(request[:username], request[:password])
+    @user = User.find_login(request[:username], request[:password])
 
-      if @user
-        session[:user] = @user
-        redirect "/user"
-      else
-        flash[:message] = "User not found."
-        redirect "/"
-      end
+    if @user
+      session[:user] = @user
+      redirect "/user"
+    else
+      flash[:message] = "User not found."
+      redirect "/"
     end
   end
 
@@ -58,8 +54,7 @@ class UserController < Controller
 
   def inventory
     if session[:user]
-      @user = session[:user]
-      @user.refresh
+      @user = session[:user].refresh
     else
       flash[:message] = "Must be logged into view this page."
       redirect "/"
@@ -68,8 +63,7 @@ class UserController < Controller
 
   def scans
     if session[:user]
-      @user = session[:user]
-      @user.refresh
+      @user = session[:user].refresh
       @scans = []
       @user.scanners.each do |scanner|
         scanner.scans.each {|scan| @scans << scan}
