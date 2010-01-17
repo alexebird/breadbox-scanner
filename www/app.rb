@@ -8,9 +8,13 @@ require 'ramaze'
 
 # Make sure that Ramaze knows where you are
 Ramaze.options.roots = [__DIR__]
-Ramaze::Log.level = Logger::INFO
+#Ramaze::Log.level = Logger::INFO
 
 require File.join(File.dirname(__FILE__), '../db/init')
 FoodDB.connect#:log_to_console => true
 
 require __DIR__('controller/init')
+
+#do |opt|
+  #puts opt.inspect
+#end

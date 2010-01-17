@@ -7,7 +7,7 @@ describe UserController do
   end
 
   it "should log known user in succuessfully" do
-    post '/user/login', :username => "abird", :password => "asdfasdf"
+    post '/user/login', :username => "abird", :password => "asdfjk"
     last_response.status.should == 302
     follow_redirect!
     last_response.status.should == 200

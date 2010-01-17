@@ -3,11 +3,6 @@ module Ramaze
     module FoodHelper
       def food_form(action, food=nil)
         form(:action => action, :method => :post) do |f|
-          #f.text "Name", "food[name]", (food ? food.name : nil)
-          #f.text "RFID", "food[rfid]", (food ? food.rfid : nil)
-          #f.text "Room", "food[room]", (food ? food.room: nil)
-          #f.text "Fridge", "food[fridge]", (food ? food.fridge: nil)
-          #f.text "Freezer", "food[freezer]", (food ? food.freezer: nil)
           f.text "Name", :name, (food ? food.name : nil)
           f.text "RFID", :rfid, (food ? food.rfid : nil)
           f.text "Room", :room, (food ? food.room: nil)
