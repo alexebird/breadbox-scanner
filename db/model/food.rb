@@ -9,11 +9,18 @@ require File.join(FoodDB[:root], 'lib/food_locations')
 #
 class Food < Sequel::Model
   plugin :timestamps
+  plugin :validation_helpers
+  raise_on_save_failure = false
   attr_accessor :expires, :location
 
   one_to_many :scans
   many_to_many :users
   many_to_one :created_by, :class => 'User'
+
+  def validate
+    validates_presence :name
+    validates_integer [:room, :fridge, :freezer], :allow_nil => true
+  end
 
   # Returns the last Scan created for this Food which was made
   # by the specified scanner.

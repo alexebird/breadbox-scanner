@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>#{@user.name} - Codename: Food</title>
@@ -11,14 +12,20 @@
         <meta name="generator" content="Ramaze #{Ramaze::VERSION}" />
         <meta name="author" content="Alex Bird" />
         <meta name="date" content="#{Time.now.iso8601}" />
+        #{css('stylesheet')}
     </head>
     <body>
         <div id="content">
             Welcome, #{@user.name}.
-            #{UserController.a('Edit', :edit)}
+            #{UserController.a('Delete', :delete)}
             #{UserController.a('Logout', :logout)}
 
-            #{render_partial(:menu)}
+            <div id="menu">
+                #{UserController.a("Summary", '')}
+                #{InventoryController.a("Inventory", '')}
+                #{FoodController.a("Foods", '')}
+                #{ScanController.a("Scans", '')}
+            </div>
             #@content
         </div>
     </body>

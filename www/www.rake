@@ -14,10 +14,15 @@ namespace :test do
     FoodHelpers::FoodSpecTask.new(WWW_ROOT, :user => ['db:beforetest']) do |t|
       t.spec_files = "spec/user_spec.rb"
     end
+
+    desc "Test FoodController."
+    FoodHelpers::FoodSpecTask.new(WWW_ROOT, :food => ['db:beforetest']) do |t|
+      t.spec_files = "spec/food_spec.rb"
+    end
   end
 
   desc "Run all website tests."
-  task :www => ['www:main', 'www:user']
+  task :www => ['www:main', 'www:user', 'www:food']
 end
 
 namespace :run do

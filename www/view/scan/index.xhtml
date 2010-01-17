@@ -1,4 +1,4 @@
-scans
+Scans
 <table>
     <tr>
         <th>Food</th>
@@ -7,7 +7,7 @@ scans
     </tr>
     <?r @scans.each do |scan| ?>
     <tr>
-        <td>#{scan.food.name}</td>
+        <td>#{food_name scan}</td>
         <td>#{scan.timestamp}</td>
         <td>#{scan.location}</td>
     </tr>

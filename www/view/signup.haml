@@ -1,0 +1,10 @@
+Signup
+#usercreatemsg
+  = flash[:message]
+= form(:action => "/user/create", :method => :post) do |f|
+  - f.text "Name", :name
+  - f.text "Username", :username
+  - f.text "Email", :email
+  - f.password "Password", :password
+  - f.password "Confirm", :password_confirm
+  - f.submit

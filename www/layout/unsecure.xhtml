@@ -11,6 +11,16 @@
     <meta name="generator" content="Ramaze #{Ramaze::VERSION}" />
     <meta name="author" content="Alex Bird" />
     <meta name="date" content="#{Time.now.iso8601}" />
+
+    #{css('stylesheet')}
+    #{js('jquery')}
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#form-username").focus();
+			$("#form-username").val("abird");
+			$("#form-password").val("asdfjk");
+		});
+	</script>
   </head>
   <body>
     <div id="content">

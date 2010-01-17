@@ -10,6 +10,7 @@ require 'ramaze'
 Ramaze.options.roots = [__DIR__]
 Ramaze::Log.level = Logger::INFO
 
-# Initialize controllers and models
-require __DIR__('model/init')
+require File.join(File.dirname(__FILE__), '../db/init')
+FoodDB.connect#:log_to_console => true
+
 require __DIR__('controller/init')

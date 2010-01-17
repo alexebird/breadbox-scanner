@@ -1,19 +1,15 @@
 <p>
-    Personal Food Inventory
-    <br />
-    #{flash[:message]}
+Personal Food Inventory
 </p>
-<div id="login">
-    #{ form(:action => "/user/login", :method => :post) do |f|
-       f.text "Username", :username
-       f.password "Password", :password
-       f.submit
-    end }
+<p>
+#{flash[:message]}
+</p>
 
-</div>
-<div id="signup">
-  <a href="/signup">Sign up</a>
-</div>
-<div id="about">
-  <a href="/about">About</a>
-</div>
+#{form(:action => UserController.r(:login), :method => :post) do |f|
+    f.text "Username", :username
+    f.password "Password", :password
+    f.submit
+end}
+
+#{MainController.a 'Sign up', :signup}
+#{MainController.a 'About', :about}

@@ -1,0 +1,24 @@
+!!! XML
+!!! 1.1
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      Codename: Food
+    %meta{ :content => "text/javascript", "http-equiv" => "Content-Script-Type" }
+    %meta{ :content => "text/css", "http-equiv" => "Content-Style-Type" }
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %meta{ :content => "0", "http-equiv" => "expires" }
+    %meta{ :name => "generator", :content => "Ramaze #{Ramaze::VERSION}" }
+    %meta{ :name => "author", :content => "Alex Bird" }
+    %meta{ :name => "date", :content => "#{Time.now.iso8601}" }
+    = css 'stylesheet'
+    = js 'jquery'
+    :javascript
+        $(document).ready(function () {
+            $("#form-username").focus();
+            $("#form-username").val("abird");
+            $("#form-password").val("asdfjk");
+        });
+  %body
+    #content
+      = @content

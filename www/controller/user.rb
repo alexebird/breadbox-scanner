@@ -1,17 +1,13 @@
 class UserController < Controller
-  layout :user
+  layout :secure
+  helper :user_helper
 
   def index
-    if session[:user]
-      @user = session[:user].refresh
-      scanner = @user.scanners.first
-      @user.inventory.each do |food|
-        time, location = food.time_and_location_for(scanner)
-        food.set(:expires => time, :location => location)
-      end
-    else
-      flash[:message] = "Must be logged into view this page."
-      redirect "/"
+    @user = session_user
+    scanner = @user.scanners.first
+    @user.inventory.each do |food|
+      time, location = food.time_and_location_for(scanner)
+      food.set(:expires => time, :location => location)
     end
   end
 
@@ -20,16 +16,16 @@ class UserController < Controller
 
     if @user
       session[:user] = @user
-      redirect "/user"
+      redirect UserController.r
     else
       flash[:message] = "User not found."
-      redirect "/"
+      redirect MainController.r
     end
   end
 
   def logout
     session[:user] = nil
-    redirect "/"
+    redirect MainController.r
   end
 
   def create
@@ -41,37 +37,21 @@ class UserController < Controller
 
       if @user.save
         session[:user] = @user
-        redirect "/user"
+        redirect UserController.r
       else
         flash[:message] = "Problem: #{@user.errors.full_messages.first}."
-        redirect "/signup"
+        redirect MainController.r(:signup)
       end
     else
       flash[:message] = "Problem: passwords do not match."
-      redirect "/signup"
+      redirect MainController.r(:signup)
     end
   end
 
-  def inventory
-    if session[:user]
-      @user = session[:user].refresh
-    else
-      flash[:message] = "Must be logged into view this page."
-      redirect "/"
-    end
-  end
-
-  def scans
-    if session[:user]
-      @user = session[:user].refresh
-      @scans = []
-      @user.scanners.each do |scanner|
-        scanner.scans.each {|scan| @scans << scan}
-      end
-    else
-      flash[:message] = "Must be logged into view this page."
-      redirect "/"
-    end
+  def delete
+    session[:user] = nil
+    flash[:message] = "User has (not actually) been deleted."
+    redirect MainController.r(:message)
   end
 
   private

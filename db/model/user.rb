@@ -3,9 +3,9 @@ require 'digest/sha2'
 class User < Sequel::Model
   PASSWORD_SALT = 'SdFAjLkZsDGf7905Q34hJKXasFbbbbbbb'
 
-  User.raise_on_save_failure = false
   plugin :timestamps
   plugin :validation_helpers
+  raise_on_save_failure = false
 
   one_to_many :scanners
   many_to_many :inventory, :class => 'Food', :right_key => :food_id

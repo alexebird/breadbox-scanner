@@ -1,0 +1,25 @@
+<h3>Foods</h3>
+<p id="food-message">
+#{flash[:message]}
+</p>
+<p>#{FoodController.a "New Food", "new"}</p>
+<table>
+    <tr>
+        <th>Food</th>
+        <th>RFID</th>
+        <th>Room</th>
+        <th>Fridge</th>
+        <th>Freezer</th>
+    </tr>
+    <?r @user.foods_created.each do |food| ?>
+    <tr>
+        <td>#{food.name}</td>
+        <td>#{food.rfid}</td>
+        <td>#{food.room} days</td>
+        <td>#{food.fridge} days</td>
+        <td>#{food.freezer} days</td>
+        <td>#{FoodController.a "Edit", "edit/#{food.id}"}</td>
+        <td>#{FoodController.a "Delete", "delete/#{food.id}"}</td>
+    </tr>
+    <?r end ?>
+</table>
