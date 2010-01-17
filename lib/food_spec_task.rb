@@ -5,6 +5,7 @@ module FoodHelpers
     def initialize(spec_root, name=:spec)
       @spec_root = spec_root
       super(name)
+      # Need to cd to the sub-project's root so that requires work correctly.
       self.ruby_cmd = "cd #@spec_root ; #{RUBY}"
       self.spec_opts << "--require #{@spec_root}/spec/spec_helper" if File.exists?("#{@spec_root}/spec/spec_helper.rb")
       self.spec_opts << "--format specdoc"
